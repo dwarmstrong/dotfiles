@@ -1,0 +1,8 @@
+# paVolume mute/decrease/increase
+# Source: https://github.com/vonbrownie/homebin/blob/master/paVolume
+"paVolume -m"
+XF86AudioMute
+"paVolume -d"
+XF86AudioLowerVolume
+"paVolume -u"
+XF86AudioRaiseVolume
