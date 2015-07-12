@@ -1,6 +1,11 @@
+.bash_aliases
+.config/
 .fehbg
 .fonts/
 .gitconfig
+.gtkrc-2.0
+.i3*
 .remmina/
 .ssh/
+.vim*
 .wallpaper/

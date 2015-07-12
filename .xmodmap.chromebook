@@ -1,0 +1,4 @@
+! modify chromebook 'Search' meta key to backspace
+clear Mod4
+keycode 133 = BackSpace
+keycode 108 = Alt_R
