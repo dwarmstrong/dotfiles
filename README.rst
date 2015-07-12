@@ -2,7 +2,7 @@
 dotfiles
 ========
 
-A few configuration files in my Linux home directory.
+Some configuration files in my $HOME.
 
 Author
 ======
