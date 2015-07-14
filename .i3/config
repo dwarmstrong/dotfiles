@@ -122,7 +122,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+z exit
+bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -159,20 +159,6 @@ bar {
             }
 }
 
-# Extras
-#
-# * Screenshot:
-# * desktop
-bindsym --release Print exec --no-startup-id scrot '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
-# * active Window
-bindsym --release $mod+Print exec --no-startup-id scrot -d 4 -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
-# * selected area... (click and move mouse)
-bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
-# * Lock/suspend:
-set $Locker i3lock -t -i ~/.wallpaper/lock_screen.png && sleep 1
-bindsym $mod+x exec --no-startup-id $Locker, mode "default"
-bindsym $mod+y exec --no-startup-id $Locker && systemctl suspend, mode "default"
-
 # Colours
 # * class                 border  backgrd text    indicator
 client.focused            #1793d0 #1793d0 #ffffff #2e9ef4
@@ -200,6 +186,37 @@ focus_follows_mouse no
 # Return to previous workspace
 workspace_auto_back_and_forth yes
 
+# Screenshot
+# * desktop
+bindsym --release Print exec --no-startup-id scrot '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+# * active Window
+bindsym --release $mod+Print exec --no-startup-id scrot -d 4 -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+# * selected area... (click and move mouse)
+bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+
 # Auto-start
 exec_always --no-startup-id $HOME/bin/dlDsply
 exec --no-startup-id $HOME/bin/startxX
+
+# * Lock/suspend:
+#set $Locker i3lock -t -i ~/.wallpaper/lock_screen.png && sleep 1
+#bindsym $mod+x exec --no-startup-id $Locker, mode "default"
+#bindsym $mod+y exec --no-startup-id $Locker && systemctl suspend, mode "default"
+
+# Lock/Logout/Suspend/Reboot/Shutdown
+# * https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
+set $Locker i3lock -t -i ~/.wallpaper/lock_screen.png && sleep 1
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
