@@ -198,19 +198,14 @@ bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%dT%H%M%S.png
 exec_always --no-startup-id $HOME/bin/dlDsply
 exec --no-startup-id $HOME/bin/startxX
 
-# * Lock/suspend:
-#set $Locker i3lock -t -i ~/.wallpaper/lock_screen.png && sleep 1
-#bindsym $mod+x exec --no-startup-id $Locker, mode "default"
-#bindsym $mod+y exec --no-startup-id $Locker && systemctl suspend, mode "default"
-
 # Lock/Logout/Suspend/Reboot/Shutdown
 # * https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
-set $Locker i3lock -t -i ~/.wallpaper/lock_screen.png && sleep 1
+set $Locker i3lock -i ~/.wallpaper/lock_screen.png && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym s exec --no-startup-id $Locker && sync && systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
