@@ -200,7 +200,7 @@ exec --no-startup-id $HOME/bin/startxX
 
 # Lock/Logout/Suspend/Reboot/Shutdown
 # * https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
-set $Locker i3lock -i ~/.wallpaper/lock_screen.png && sleep 1
+set $Locker i3lock -i ~/.i3lock.png && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
