@@ -2,3 +2,5 @@
 clear Mod4
 keycode 133 = BackSpace
 keycode 108 = Alt_R
+! set '=ignore' in logind.conf and make powerkey into pause
+keycode 124 = Pause
