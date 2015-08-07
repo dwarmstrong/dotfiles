@@ -195,8 +195,7 @@ bindsym --release $mod+Print exec --no-startup-id scrot -d 4 -u -z '%Y-%m-%dT%H%
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
 
 # Auto-start
-exec_always --no-startup-id $HOME/bin/dlDsply
-exec --no-startup-id $HOME/bin/startxX
+exec --no-startup-id $HOME/bin/startX
 
 # Lock/Logout/Suspend/Reboot/Shutdown
 # * https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
