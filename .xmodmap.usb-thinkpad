@@ -1,3 +1,0 @@
-! Modify Caps_Lock into Backspace
-keycode 66 = BackSpace
-clear Lock
