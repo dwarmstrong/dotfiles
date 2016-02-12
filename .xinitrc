@@ -1,19 +1,25 @@
 #!/bin/sh
 
-Xresources=$HOME/.Xresources
-Xmodmap=$HOME/.xmodmap
-Xbindkey=$HOME/.xbindkeysrc
+# ~/.xinitrc ... used by X sessions started by xinit (startx)
 
-if [ -f "$Xresources" ]; then
-    xrdb -merge "$Xresources"
-fi
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
-if [ -f "$Xmodmap" ]; then
-    xmodmap "$Xmodmap"
-fi
+# Set config parameters for X client applications
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-if [ -f "$Xbindkey" ]; then
-    xbindkeys
-fi
+# Bind commands to certain keys or key combos
+[ -f ~/.xbindkeysrc ] && xbindkeys
 
+# Modify key mappings
+[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
+
+# Janitor
+[ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
+
+# Applications
+~/bin/dldsply &
+~/bin/xtra &
+urxvt &
+
+# Start window manager
 exec i3
