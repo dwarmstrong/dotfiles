@@ -1,0 +1,42 @@
+# ~/.xbindkeysrc ... Bind commands to certain keys or key combos
+
+# Backward/forward
+"xvkbd -xsendevent -text "\A\[Left]""
+F1 
+
+"xvkbd -xsendevent -text "\A\[Right]""
+F2 
+
+# Backlight decrease/increase
+"xbacklight -dec 10"
+F6
+"xbacklight -inc 10"
+F7
+
+# volume mute/decrease/increase
+# paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
+"paVolume -m"
+F8
+"paVolume -m"
+XF86AudioMute
+"paVolume -d"
+F9
+"paVolume -d"
+XF86AudioLowerVolume
+"paVolume -u"
+F10
+"paVolume -u"
+XF86AudioRaiseVolume
+
+# Page up/down, home, end
+"xvkbd -xsendevent -text '\[Page_Up]'"
+Alt + Up
+
+"xvkbd -xsendevent -text '\[Page_Down]'"
+Alt + Down
+
+"xvkbd -xsendevent -text '\[Home]'"
+Alt + Left
+
+"xvkbd -xsendevent -text '\[End]'"
+Alt + Right

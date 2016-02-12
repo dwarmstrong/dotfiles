@@ -1,0 +1,7 @@
+! ~/.xmodmap ... ThinkPad USB Keyboard with Trackpoint key mappings
+
+! Modify Caps_Lock into Backspace
+keycode 66 = BackSpace
+clear Lock
+
+keycode 108 = Alt_R
