@@ -132,3 +132,6 @@ PATH=$PATH:/sbin:/usr/sbin
 # disable XON/XOFF flow control (allowing the use of C-S in other commands like
 # forward search in history and disabling screen freeze in vim)
 stty -ixon
+
+# MPD daemon start (if no other user instance exists)
+[ ! -s ~/.config/mpd/pid ] && mpd
