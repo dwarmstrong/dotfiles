@@ -1,0 +1,10 @@
+# ~/.xbindkeysrc ... Bind commands to certain keys or key combos
+
+# volume mute/decrease/increase
+# paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
+"paVolume -m"
+    XF86AudioMute
+"paVolume -d"
+    XF86AudioLowerVolume
+"paVolume -u"
+    XF86AudioRaiseVolume
