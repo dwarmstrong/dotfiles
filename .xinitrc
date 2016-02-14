@@ -19,6 +19,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # Applications
 ~/bin/dldsply &
 ~/bin/xtra &
+volnoti -t 2 &
 urxvt &
 
 # Start window manager
