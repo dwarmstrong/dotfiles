@@ -9,8 +9,6 @@ Author
 
 | Daniel Wayne Armstrong (aka) VonBrownie
 | http://www.circuidipity.com
-| http://twitter.com/circuidipity
-| daniel@circuidipity.com
 
 License
 =======
