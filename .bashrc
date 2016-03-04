@@ -65,12 +65,13 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    if [[ -n "$SSH_CLIENT" ]]; then
+        ssh_message=": ssh-session"
+    fi
     if [[ $HOSTNAME = "sum"* ]] || [[ $HOSTNAME = "cru"* ]]; then
-        PS1='\[\033[01;37m\][\u@\h:\[\033[01;34m\]\w\[\033[01;37m\]]\$\[\033[00m\] '
-    elif [[ $HOSTNAME = "ras"* ]]; then
-        PS1='\[\033[01;31m\][\u@\h:\[\033[01;34m\]\w\[\033[01;31m\]]\$\[\033[00m\] '
+        PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[37;1m\]\$(date +%Y-%m-%dT%H:%M)\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\] .: \[\e[37;1m\]\$(/bin/ls -1Ab | wc -l) files, \$(/bin/ls -lAh | /bin/grep -m 1 total | cut -d ' ' -f 2)\[\e[32;1m\])\n:.(\[\e[37;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
     else
-        PS1='\[\033[01;35m\][\u@\h:\[\033[01;34m\]\w\[\033[01;35m\]]\$\[\033[00m\] '
+        PS1="\[\e[32;1m\]:(\[\e[31;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[31;1m\]\$(date +%Y-%m-%dT%H:%M)\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\] .: \[\e[31;1m\]\$(/bin/ls -1Ab | wc -l) files, \$(/bin/ls -lAh | /bin/grep -m 1 total | cut -d ' ' -f 2)\[\e[32;1m\])\n:.(\[\e[31;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
     fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -132,6 +133,3 @@ PATH=$PATH:/sbin:/usr/sbin
 # disable XON/XOFF flow control (allowing the use of C-S in other commands like
 # forward search in history and disabling screen freeze in vim)
 stty -ixon
-
-# MPD daemon start (if no other user instance exists)
-[ ! -s ~/.config/mpd/pid ] && mpd
