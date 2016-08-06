@@ -5,4 +5,5 @@
 .local/
 .mozilla/
 .ssh/
+.teleport*
 _*

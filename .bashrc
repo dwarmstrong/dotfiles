@@ -20,8 +20,8 @@ shopt -s histappend
 shopt -s cmdhist
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=200000
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # timestamps
 HISTTIMEFORMAT='%FT%T> '
