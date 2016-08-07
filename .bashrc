@@ -128,7 +128,7 @@ keychain ~/.ssh/id_rsa
 . ~/.keychain/$HOSTNAME-sh
 
 # add directories to my $PATH
-PATH=$PATH:/sbin:/usr/sbin
+PATH=$PATH:~/.local/bin
 
 # disable XON/XOFF flow control (allowing the use of C-S in other commands like
 # forward search in history and disabling screen freeze in vim)
