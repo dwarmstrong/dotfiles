@@ -1,4 +1,5 @@
-" Name: init.vim - config for neovim text editor
+" = init.vim =
+
 " Link: https://github.com/vonbrownie/dotfiles
 
 " == General Configuration ==
@@ -21,17 +22,15 @@ set softtabstop=4	" see multiple spaces as tabstops so <BS> does the right thing
 set shiftwidth=4	" width for autoindents
 set autoindent      " indent a new line the same amount as the line just typed
 set number          " add line numbers
-
-" set column border
-set cc=80
+set wildmode=longest,list  " get bash-like tab completions
+set cc=80           " set column border
 hi ColorColumn ctermbg=DarkBlue guibg=DarkBlue
 
 " date+time stamp
 inoremap ,d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
 
-" === vimwiki ===
+" vimwiki 
 let g:vimwiki_list = [{'path': '~/doc/wiki/', 'path_html': '~/doc/wiki/html/'}]
-
 
 " == Plugins ==
 
