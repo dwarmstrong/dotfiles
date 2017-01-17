@@ -1,5 +1,4 @@
-" = init.vim =
-
+" File: init.vim
 " Link: https://github.com/vonbrownie/dotfiles
 
 " == General Configuration ==
@@ -24,7 +23,9 @@ set autoindent      " indent a new line the same amount as the line just typed
 set number          " add line numbers
 set wildmode=longest,list  " get bash-like tab completions
 set cc=80           " set column border
-hi ColorColumn ctermbg=DarkBlue guibg=DarkBlue
+
+" colour scheme
+colorscheme tir_black
 
 " date+time stamp
 inoremap ,d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
