@@ -22,15 +22,14 @@ set cc=80           " set an 80 column border for good coding style
 " colour scheme
 colorscheme tir_black
 
-" date+time stamp
-inoremap ,d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
-
-" vimwiki 
-let g:vimwiki_list = [{'path': '~/doc/wiki/', 'path_html': '~/doc/wiki/html/'}]
-
 " map leader and normal mode mappings
 let g:mapleader = ','
 nnoremap <leader>h :rightbelow vertical help
+" date+time stamp
+inoremap <leader>d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
+" toggle spelling
+nnoremap <leader>s :set invspell<CR>
+
 
 " == Plugins ==
 
@@ -44,7 +43,22 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vimwiki/vimwiki'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end() 
 filetype plugin indent on  " allows auto-indenting depending on file type
+
+" vimwiki 
+let g:vimwiki_list = [{'path': '~/doc/wiki/', 'path_html': '~/doc/wiki/html/'}]
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_exe = 'python3 -m pylint3'
