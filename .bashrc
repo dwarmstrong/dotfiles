@@ -8,48 +8,60 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth:erasedups
-# ... and ignore certain lines
-HISTIGNORE='ls:bg:fg:history:shred'
+# Unlimited history.
+HISTSIZE=
+HISTFILESIZE=
 
-# append to the history file, don't overwrite it
+# Change the history file location because certain bash sessions truncate
+# ~/.bash_history upon close.
+HISTFILE=~/.bash_unlimited_history
+
+# Default is to write history at the end of each session, overwriting the
+# existing file with an updated version. If logged in with multiple sessions,
+# only the last session to exit will have its history saved.
+#
+# Have prompt write to history after every command and append to the history
+# file, don't overwrite it.
 shopt -s histappend
-# use one command per line
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# Add a timestamp per entry. Useful for context when viewing logfiles.
+HISTTIMEFORMAT="%FT%T  "
+
+# Save all lines of a multiple-line command in the same history entry.
 shopt -s cmdhist
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Reedit a history substitution line if it failed.
+shopt -s histreedit
 
-# timestamps
-HISTTIMEFORMAT='%FT%T> '
+# Edit a recalled history line before executing.
+shopt -s histverify
+
+# Don't put lines starting with space in the history.
+HISTCONTROL=ignorespace
+
+# Toggle history off/on for a current shell.
+alias stophistory="set +o history"
+alias starthistory="set -o history"
+
+# Helpful!
+# https://stackoverflow.com/questions/9457233/unlimited-bash-history
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+# https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+
+# Automatically prepend cd when entering just a path in the shell.
+shopt -s autocd
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# Uncomment for a colored prompt, if the terminal has the capability.
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -63,8 +75,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Set a two-line prompt; adjust colour based on HOSTNAME; if accessing via ssh
+# include 'ssh-session' message.
 if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     if [[ -n "$SSH_CLIENT" ]]; then
         ssh_message=": ssh-session"
     fi
@@ -74,45 +87,55 @@ if [ "$color_prompt" = yes ]; then
         PS1="\[\e[32;1m\]:(\[\e[31;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.(\[\e[31;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
     fi
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="\u@\h:\w\$ "
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and a few handy aliases.
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -alhv --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias ls="ls -aFlhv --color=auto"
+    alias diff="colordiff"
+    alias dir="dir --color=auto"
+    alias vdir="vdir --color=auto"
+    alias grep="grep --color=auto"
+    alias fgrep="fgrep --color=auto"
+    alias egrep="egrep --color=auto"
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# More aliases and functions.
+alias ..="cd .."
+alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade"
+alias arst="setxkbmap us && xmodmap ~/.xmodmap"
+alias asdf="setxkbmap us -variant colemak && xmodmap ~/.xmodmap"
+bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
+alias df="df -hT --total"
+alias dpkgg="dpkg -l | grep -i"
+dsrt() { du -ach $1 | sort -h; }
+alias free="free -h"
+alias gpush="git push -u origin master"
+alias gsave="git commit -m 'save'"
+alias gs="git status"
+alias histg="history | grep"
+alias lsl="ls | less"
+alias mkdir="mkdir -pv"
+mcd() { mkdir -p $1; cd $1; } 
+mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
+alias pgrep="pgrep -a"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias tmuxa="tmux -f $HOME/.tmux.default.conf attach"
+alias wget="wget -c"
+alias zzz="sync && systemctl suspend"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
+# Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -123,13 +146,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# setup keychain - ssh-agent management
-keychain ~/.ssh/id_rsa
-. ~/.keychain/$HOSTNAME-sh
+# Setup keychain for ssh-agent management.
+if [ -x /usr/bin/keychain ]; then
+    keychain ~/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
+fi
 
-# add directories to my $PATH
-PATH=$PATH:~/.local/bin
+# Add directories to my $PATH.
+export PATH=$PATH:/sbin
 
-# disable XON/XOFF flow control (allowing the use of C-S in other commands like
-# forward search in history and disabling screen freeze in vim)
+# Disable XON/XOFF flow control. Enables the use of C-S in other commands.
+# Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
