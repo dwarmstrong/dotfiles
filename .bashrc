@@ -110,6 +110,7 @@ alias arst="setxkbmap us && xmodmap ~/.xmodmap"
 alias asdf="setxkbmap us -variant colemak && xmodmap ~/.xmodmap"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
 alias df="df -hT --total"
+alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
 dsrt() { du -ach $1 | sort -h; }
 alias free="free -h"
@@ -122,7 +123,10 @@ alias mkdir="mkdir -pv"
 mcd() { mkdir -p $1; cd $1; } 
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
+alias poweroff="sudo /sbin/poweroff"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias reboot="sudo /sbin/reboot"
+alias shutdown="sudo /sbin/shutdown"
 alias tmuxa="tmux -f $HOME/.tmux.default.conf attach"
 alias wget="wget -c"
 alias zzz="sync && systemctl suspend"
