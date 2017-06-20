@@ -1,8 +1,9 @@
 #!/bin/sh
+# NAME=".xinitrc"
+# BLURB="Read by xinit and by its front-end startx"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc"
 
-# ~/.xinitrc ... used by X sessions started by xinit (startx)
-
-export QT_QPA_PLATFORMTHEME="qt5ct"
+#export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Set config parameters for X client applications
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
@@ -13,12 +14,16 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # Modify key mappings
 [ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
 
+# Disable DPMS and turn off screen blanking
+xset s off -dpms
+
 # Janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
 
 # Applications
-~/bin/dldsply &
-~/bin/xtra &
+~/bin/dldsply -l &
+~/bin/trackpointconf &
+[ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
 urxvt &
 

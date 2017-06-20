@@ -1,13 +1,6 @@
-.bash_aliases
 .config/nvim/bundle
 .config/nvim/colors
 .config/user-dirs.*
-.fonts/
-.gitconfig
 .local/
-.mozilla/
-.ssh/
-.teleport*
-.vim/
 *.bak
 _*
