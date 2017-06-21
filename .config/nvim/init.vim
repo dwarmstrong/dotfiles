@@ -18,7 +18,13 @@ set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
 
-" map leader and normal mode mappings
+" color scheme
+colorscheme tir_black
+
+" n  Normal mode map. Defined using ':nmap' or ':nnoremap'.
+" i  Insert mode map. Defined using ':imap' or ':inoremap'.
+
+" map leader
 let g:mapleader = ','
 nnoremap <leader>h :rightbelow vertical help
 
@@ -27,9 +33,6 @@ inoremap <leader>d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
 
 " toggle spelling
 nnoremap <leader>s :set invspell<CR>
-
-" color scheme
-colorscheme tir_black
 
 " == Plugins ==
 
