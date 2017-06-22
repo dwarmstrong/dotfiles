@@ -6,24 +6,34 @@
 #export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Set config parameters for X client applications
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
 
 # Bind commands to certain keys or key combos
-[ -f ~/.xbindkeysrc ] && xbindkeys
+if [ -f ~/.xbindkeysrc ]; then
+    xbindkeys
+fi
 
 # Modify key mappings
-[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
+if [ -f ~/.xmodmap ]; then
+    xmodmap ~/.xmodmap
+fi
 
 # Disable DPMS and turn off screen blanking
 xset s off -dpms
 
 # Janitor
-[ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
+if [ -d ~/.local/share/Trash ]; then
+    rm -rf ~/.local/share/Trash/*
+fi
 
-# Applications
-~/bin/dldsply -l &
+# Launch applications
+~/bin/dldsply -r &
 ~/bin/trackpointconf &
-[ -x /usr/bin/nm-applet ] && nm-applet &
+if [ -x /usr/bin/nm-applet ]; then
+    nm-applet &
+fi
 volnoti -t 2 &
 urxvt &
 
