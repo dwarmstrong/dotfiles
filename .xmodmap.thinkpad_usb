@@ -1,7 +1,9 @@
-! ~/.xmodmap ... ThinkPad USB Keyboard with Trackpoint key mappings
+! NAME=".xmodmap.thinkpad_usb"
+! BLURB="ThinkPad USB Keyboard key mappings"
+! SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xmodmap.thinkpad_usb"
 
-! Modify Caps_Lock into Backspace
+! Modify Caps_Lock into repeating Backspace (for colemak)
 keycode 66 = BackSpace
 clear Lock
 
-keycode 108 = Alt_R
+!keycode 108 = Alt_R

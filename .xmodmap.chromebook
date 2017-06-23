@@ -1,4 +1,6 @@
-! ~/.xmodmap - Acer C720 Chromebook key mappings
+! NAME=".xmodmap.chromebook" 
+! BLURB="Acer C720 Chromebook key mappings"
+! SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xmodmap.chromebook"
 
 ! 'Search' meta key to backspace
 ! IMPORTANT: 'clear Mod4' to enable key combo in GTK apps

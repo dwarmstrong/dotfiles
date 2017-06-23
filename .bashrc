@@ -1,6 +1,6 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# NAME=".bashrc"
+# BLURB="~/.bashrc: executed by bash(1) for non-login shells"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.bashrc"
 
 # If not running interactively, don't do anything
 case $- in
@@ -106,8 +106,8 @@ fi
 # More aliases and functions.
 alias ..="cd .."
 alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade"
-alias arst="setxkbmap us && xmodmap ~/.xmodmap"
-alias asdf="setxkbmap us -variant colemak && xmodmap ~/.xmodmap"
+alias arst="setxkbmap us"
+alias asdf="setxkbmap us -variant colemak"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
 alias df="df -hT --total"
 alias dmesg="sudo dmesg"

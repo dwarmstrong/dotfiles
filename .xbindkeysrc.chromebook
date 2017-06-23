@@ -1,4 +1,6 @@
-# ~/.xbindkeysrc ... Bind commands to certain keys or key combos
+# NAME=".xbindkeysrc.chromebook"
+# BLURB="Bind commands to certain keys or key combos"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xbindkeysrc.chromebook"
 
 # Backward/forward
 "xvkbd -xsendevent -text "\A\[Left]""
@@ -13,7 +15,7 @@ F6
 "xbacklight -inc 10"
 F7
 
-# volume mute/decrease/increase
+# Volume mute/decrease/increase
 # paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
 "paVolume -m"
 F8

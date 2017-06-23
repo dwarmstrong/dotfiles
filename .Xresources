@@ -1,4 +1,6 @@
-! ~/.Xresources ... set config parameters for X client applications  ----------
+! NAME="~/.Xresources"
+! BLURB="Set config parameters for X client applications"
+! SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.Xresources"
 
 ! Refresh config by running ``xrdb -merge ~/.Xresources``
 
@@ -50,6 +52,10 @@ URxvt.tabbed.tab-fg: 15
 URxvt.tabbed.tab-bg: 4
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
+! add a spot of colour to man pages
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
 
 !Rofi -------------------------------------------------------------------------
 rofi.hlfg:          #FFFFFF
