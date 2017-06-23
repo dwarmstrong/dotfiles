@@ -2,6 +2,12 @@
 # BLURB="Bind commands to certain keys or key combos"
 # SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xbindkeysrc.thinkpad_usb"
 
+# Backlight decrease/increase
+"xbacklight -dec 10"
+    XF86MonBrightnessDown
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+
 # Volume mute/decrease/increase
 # paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
 "paVolume -m"
