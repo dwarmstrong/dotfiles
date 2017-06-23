@@ -30,12 +30,12 @@ fi
 
 # Launch applications
 ~/bin/dldsply -r &
-~/bin/keyboardconf &
 if [ -x /usr/bin/nm-applet ]; then
     nm-applet &
 fi
 volnoti -t 2 &
 urxvt &
+~/bin/keyboardconf &
 
 # Start window manager
 exec i3
