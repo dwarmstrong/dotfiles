@@ -6,4 +6,4 @@
 keycode 66 = BackSpace
 clear Lock
 
-!keycode 108 = Alt_R
+keycode 108 = Alt_R
