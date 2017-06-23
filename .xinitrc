@@ -10,15 +10,15 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
-# Bind commands to certain keys or key combos
-if [ -f ~/.xbindkeysrc ]; then
-    xbindkeys
-fi
+# Bind commands to certain keys or key combos (handled by keyboardconf)
+#if [ -f ~/.xbindkeysrc ]; then
+#    xbindkeys
+#fi
 
-# Modify key mappings
-if [ -f ~/.xmodmap ]; then
-    xmodmap ~/.xmodmap
-fi
+# Modify key mappings (handled by keyboardconf)
+#if [ -f ~/.xmodmap ]; then
+#    xmodmap ~/.xmodmap
+#fi
 
 # Disable DPMS and turn off screen blanking
 xset s off -dpms
@@ -30,7 +30,7 @@ fi
 
 # Launch applications
 ~/bin/dldsply -r &
-~/bin/trackpointconf &
+~/bin/keyboardconf &
 if [ -x /usr/bin/nm-applet ]; then
     nm-applet &
 fi
