@@ -29,7 +29,6 @@ xset s off -dpms
 # Launch applications
 ~/bin/dldsply -r &
 ~/bin/i3wm_conf &
-sleep 4 &
 ~/bin/keyboardconf &
 [ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
