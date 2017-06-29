@@ -5,37 +5,35 @@
 
 #export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# --------[ Handled bu keyboardconf ]---------------------------------------- #
+#
+# Source: https://github.com/vonbrownie/homebin/blob/master/keyboardconf
+
+# Bind commands to certain keys or key combos
+#[ -f ~/.xbindkeysrc ] && xbindkeys
+
+# Modify key mappings
+#[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
+
+# --------------------------------------------------------------------------- #
+
 # Set config parameters for X client applications
-if [ -f ~/.Xresources ]; then
-    xrdb -merge ~/.Xresources
-fi
-
-# Bind commands to certain keys or key combos (handled by keyboardconf)
-#if [ -f ~/.xbindkeysrc ]; then
-#    xbindkeys
-#fi
-
-# Modify key mappings (handled by keyboardconf)
-#if [ -f ~/.xmodmap ]; then
-#    xmodmap ~/.xmodmap
-#fi
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
 # Disable DPMS and turn off screen blanking
 xset s off -dpms
 
 # Janitor
-if [ -d ~/.local/share/Trash ]; then
-    rm -rf ~/.local/share/Trash/*
-fi
+[ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
 
 # Launch applications
 ~/bin/dldsply -r &
-if [ -x /usr/bin/nm-applet ]; then
-    nm-applet &
-fi
+~/bin/i3wm_conf &
+sleep 4 &
+~/bin/keyboardconf &
+[ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
 urxvt &
-~/bin/keyboardconf &
 
 # Start window manager
 exec i3
