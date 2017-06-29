@@ -1,0 +1,20 @@
+# NAME="~/.config/i3/config.single_display"
+# BLURB="Setup display"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.single_display"
+
+
+# --------[ Applications ]--------------------------------------------------- #
+#
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top
+    status_command i3status --config ~/.config/i3/i3status.conf
+    font pango:Terminus 11px
+    colors {
+        focused_workspace #ff0000 #ff0000 #ffffff
+        inactive_workspace #454545 #454545 #ffffff
+        }
+}
+
+

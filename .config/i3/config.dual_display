@@ -1,0 +1,42 @@
+# NAME="~/.config/i3/config.dual_display"
+# BLURB="Setup for primary and secondary displays"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.dual_display"
+
+
+# --------[ Workspaces ]----------------------------------------------------- #
+#
+# Automatically place workspaces on specific displays
+# * external display =  PRIMARY
+# * laptop display =    SECOND
+workspace 1 output PRIMARY
+workspace 10 output SECOND
+
+
+# --------[ Applications ]--------------------------------------------------- #
+#
+# Start i3bar to display a workspace bar on the external (primary) display
+# (plus the system information i3status finds out, if available)
+bar {
+    output PRIMARY
+    position top
+    status_command i3status --config ~/.config/i3/i3status.conf
+    font pango:Terminus 11px
+    colors {
+        focused_workspace #ff0000 #ff0000 #ffffff
+        inactive_workspace #454545 #454545 #ffffff
+        }
+}
+
+bar {
+    output SECOND
+    position top
+    tray_output none
+    status_command i3status --config ~/.config/i3/i3status-small.conf
+    font pango:Terminus 11px
+    colors {
+        focused_workspace #ff0000 #ff0000 #ffffff
+        inactive_workspace #454545 #454545 #ffffff
+        }
+}
+
+
