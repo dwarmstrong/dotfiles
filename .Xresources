@@ -58,6 +58,8 @@ URxvt.colorBD:      #d7d7d7
 URxvt.colorUL:      #87afd7
 
 ! Rofi ------------------------------------------------------------------------
+! "Hide scroll-bar" Set from: File
+rofi.hide-scrollbar:    true
 ! "Separator style (none, dash, solid)" Set from: File
 rofi.separator-style:	solid
 ! Colour help from https://davedavenport.github.io/rofi/p11-Generator.html
