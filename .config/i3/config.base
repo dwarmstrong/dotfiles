@@ -195,7 +195,7 @@ bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
 # Assign terminals to workspace 1
 assign [class="^URxvt$"] 1
 # Assign torrent client to workspace 10
-assign [class="Transmission"] 10
+assign [instance="transmission-qt"] 10
 # Assign music player to workspace 10
 assign [class="Rhythmbox"] 10
 
