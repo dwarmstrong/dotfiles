@@ -162,3 +162,7 @@ export PATH=$PATH:/sbin
 # Disable XON/XOFF flow control. Enables the use of C-S in other commands.
 # Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
+
+# Use qt5ct to configure theme in Qt5 and set environment variable so that
+# the settings are picked up by Qt apps.
+export QT_QPA_PLATFORMTHEME=qt5ct
