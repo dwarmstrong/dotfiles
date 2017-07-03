@@ -22,8 +22,8 @@ bar {
     status_command i3status --config ~/.config/i3/i3status.conf
     font pango:Terminus 11px
     colors {
-        focused_workspace #ff0000 #ff0000 #ffffff
-        inactive_workspace #454545 #454545 #ffffff
+        focused_workspace #3daee9 #3daee9 #ffffff
+        inactive_workspace #4d4d4d #4d4d4d #ffffff
         }
 }
 
@@ -34,8 +34,8 @@ bar {
     status_command i3status --config ~/.config/i3/i3status-small.conf
     font pango:Terminus 11px
     colors {
-        focused_workspace #ff0000 #ff0000 #ffffff
-        inactive_workspace #454545 #454545 #ffffff
+        focused_workspace #3daee9 #3daee9 #ffffff
+        inactive_workspace #4d4d4d #4d4d4d #ffffff
         }
 }
 
