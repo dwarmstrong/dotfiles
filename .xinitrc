@@ -2,10 +2,9 @@
 # NAME=".xinitrc"
 # BLURB="Read by xinit and by its front-end startx"
 # SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc"
+# HOMEBIN_SOURCE="https://github.com/vonbrownie/homebin"
 
-# --------[ Handled bu keyboardconf ]---------------------------------------- #
-#
-# Source: https://github.com/vonbrownie/homebin/blob/master/keyboardconf
+# --------[ Handled by keyboardconf ]---------------------------------------- #
 
 # Bind commands to certain keys or key combos
 #[ -f ~/.xbindkeysrc ] && xbindkeys
@@ -28,6 +27,7 @@ xset s off -dpms
 ~/bin/dldsply -r &
 ~/bin/i3wm_conf &
 ~/bin/keyboardconf &
+sleep 2
 [ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
 urxvt &
