@@ -167,8 +167,6 @@ bindsym $mod+v split v
 # Auto-start applications at 'startx' are listed in ~/.xinitrc
 # Source: https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc
 
-# exec --no-startup-id dunst????
-
 # Start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -182,18 +180,18 @@ bindsym $mod+Tab exec --no-startup-id rofi -monitor -1 -show window
 # Screenshots using scrot + eog (image viewer)
 # * desktop image
 bindsym --release Print exec --no-startup-id scrot \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
 bindsym --release $mod+F4 exec --no-startup-id scrot \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
 # * active window image
 bindsym --release Shift+Print exec --no-startup-id scrot -d 4 -u -z \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
 bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
 
 # Automatically put clients on specific workspaces
 # Assign terminals to workspace 1
-assign [class="^URxvt$"] 1
+#assign [class="^URxvt$"] 1
 # Assign torrent client to workspace 10
 assign [instance="transmission-qt"] 10
 # Assign music player to workspace 10
