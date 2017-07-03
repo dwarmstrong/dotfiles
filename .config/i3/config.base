@@ -43,6 +43,10 @@ client.focused_inactive   #1cdc9a #1cdc9a #ffffff #484e50
 client.unfocused          #4d4d4d #4d4d4d #ffffff #292d2e
 client.urgent             #2f343a #900000 #ffffff #900000
 
+# Styling
+# *Breeze* is the default Qt style of KDE Plasma with good support for both Qt
+# and GTK applications. More: http://www.circuidipity.com/breeze-qt-gtk.html
+
 # Hide vertical and horizontal borders
 hide_edge_borders both
 
@@ -177,7 +181,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 bindsym $mod+F2 exec --no-startup-id rofi -monitor -1 -show run
 bindsym $mod+Tab exec --no-startup-id rofi -monitor -1 -show window
 
-# Screenshots using scrot + eog (image viewer)
+# Screenshots using scrot + lximage-qt
 # * desktop image
 bindsym --release Print exec --no-startup-id scrot \
 '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
