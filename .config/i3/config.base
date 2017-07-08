@@ -171,7 +171,10 @@ bindsym $mod+v split v
 # Auto-start applications at 'startx' are listed in ~/.xinitrc
 # Source: https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc
 
-# Start a terminal
+# Start a terminal on workspace 1
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt'
+
+# Launch terminal
 bindsym $mod+Return exec urxvt
 
 # Start dunst - lightweight notification-daemon
@@ -194,8 +197,6 @@ bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
 '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
 
 # Automatically put clients on specific workspaces
-# Assign terminals to workspace 1
-#assign [class="^URxvt$"] 1
 # Assign torrent client to workspace 10
 assign [instance="transmission-qt"] 10
 # Assign music player to workspace 10
