@@ -30,7 +30,6 @@ xset s off -dpms
 sleep 2
 [ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
-urxvt &
 
 # Start window manager
 exec i3
