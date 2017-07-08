@@ -156,9 +156,6 @@ if [ -x /usr/bin/keychain ]; then
     . ~/.keychain/$HOSTNAME-sh
 fi
 
-# Add directories to my $PATH.
-export PATH=$PATH:/sbin
-
 # Disable XON/XOFF flow control. Enables the use of C-S in other commands.
 # Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
