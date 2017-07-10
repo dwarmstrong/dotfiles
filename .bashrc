@@ -105,7 +105,7 @@ fi
 
 # More aliases and functions.
 alias ..="cd .."
-alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade"
+alias aaaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
