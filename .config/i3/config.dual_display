@@ -19,7 +19,7 @@ workspace 10 output SECOND
 bar {
     output PRIMARY
     position top
-    status_command i3status --config ~/.config/i3/i3status.conf
+    status_command i3status --config ~/.config/i3/STATUS_CONF
     font pango:Terminus 11px
     colors {
         focused_workspace #3daee9 #3daee9 #ffffff
