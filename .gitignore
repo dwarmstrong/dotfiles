@@ -1,6 +1,8 @@
 .config/i3/config
 .config/nvim/bundle
 .config/nvim/colors
+.config/nvim/.netrwhist
 .config/nvim/spell
+.vifm
 *.bak
 _*
