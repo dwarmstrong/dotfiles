@@ -26,9 +26,9 @@ xset s off -dpms
 # Applications
 ~/bin/dldsply -r &
 ~/bin/i3wm_conf &
-~/bin/keyboardconf &
 sleep 2
-[ -x /usr/bin/nm-applet ] && nm-applet &
+(sleep 8; ~/bin/keyboardconf) &
+[ -x /usr/bin/cmst ] && cmst -m &
 volnoti -t 2 &
 
 # Start window manager
