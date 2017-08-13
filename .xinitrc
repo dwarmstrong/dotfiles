@@ -27,7 +27,7 @@ xset s off -dpms
 ~/bin/dldsply -r &
 ~/bin/i3wm_conf &
 sleep 2
-(sleep 8; ~/bin/keyboardconf) &
+(sleep 15; ~/bin/keyboardconf) &
 [ -x /usr/bin/cmst ] && cmst -m &
 volnoti -t 2 &
 
