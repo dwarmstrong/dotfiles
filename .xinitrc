@@ -20,6 +20,9 @@
 # Disable DPMS and turn off screen blanking
 xset s off -dpms
 
+# Disable system beep
+xset b off
+
 # Janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
 
