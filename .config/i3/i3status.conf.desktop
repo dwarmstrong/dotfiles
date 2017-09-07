@@ -1,6 +1,6 @@
 # NAME="~/.config/i3/i3status.conf.desktop"
 # BLURB="Statusbar configuration file"
-# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/i3status.conf.desktop"
+# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/i3status.conf.thinkpad_e520"
 #
 # see "man i3status" for documentation.
 
@@ -14,14 +14,14 @@ general {
         interval = 5
 }
 
-#order += "wireless wlp1s0"
+#order += "wireless wlp2s0"
 order += "ethernet enp3s0"
 #order += "battery 0"
 order += "load"
 order += "cpu_temperature 0"
 order += "tztime local"
 
-wireless wlp1s0 {
+wireless wlp2s0 {
         format_up = " W: %essid %quality %ip "
         format_down = " W: down "
 }

@@ -31,7 +31,7 @@ xset b off
 ~/bin/i3wm_conf &
 sleep 2
 (sleep 15; ~/bin/keyboardconf) &
-[ -x /usr/bin/cmst ] && cmst -m &
+[ -x /usr/bin/nm-applet ] && nm-applet &
 volnoti -t 2 &
 
 # Start window manager
