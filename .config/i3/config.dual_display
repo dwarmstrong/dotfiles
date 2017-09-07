@@ -18,7 +18,7 @@ workspace 10 output SECOND
 # (plus the system information i3status finds out, if available)
 bar {
     output PRIMARY
-    position top
+    position bottom
     status_command i3status --config ~/.config/i3/STATUS_CONF
     font pango:Terminus 11px
     colors {
@@ -29,7 +29,7 @@ bar {
 
 bar {
     output SECOND
-    position top
+    position bottom
     tray_output none
     status_command i3status --config ~/.config/i3/i3status-small.conf
     font pango:Terminus 11px

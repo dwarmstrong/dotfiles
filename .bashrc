@@ -81,10 +81,11 @@ if [ "$color_prompt" = yes ]; then
     if [[ -n "$SSH_CLIENT" ]]; then
         ssh_message=": ssh-session"
     fi
-    if [[ $HOSTNAME = "nuu"* ]] || [[ $HOSTNAME = "ull"* ]]; then
-        PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.(\[\e[37;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
+    if [[ $HOSTNAME = "na"* ]] || [[ $HOSTNAME = "ul"* ]]; then
+        #PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.(\[\e[37;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
+        PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.\[\e[37;1m\]\$\[\e[0m\] "
     else
-        PS1="\[\e[32;1m\]:(\[\e[31;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.(\[\e[31;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
+        PS1="\[\e[32;1m\]:(\[\e[31;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.\[\e[37;1m\]\$\[\e[0m\] "
     fi
 else
     PS1="\u@\h:\w\$ "

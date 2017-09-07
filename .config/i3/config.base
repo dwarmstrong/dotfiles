@@ -181,20 +181,20 @@ bindsym $mod+Return exec urxvt
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Start rofi - window switcher, run dialog, and dmenu replacement
-bindsym $mod+F2 exec --no-startup-id rofi -monitor -1 -show run
+bindsym $mod+d exec --no-startup-id rofi -monitor -1 -show run
 bindsym $mod+Tab exec --no-startup-id rofi -monitor -1 -show window
 
-# Screenshots using scrot + lximage-qt
+# Screenshots using scrot + eog
 # * desktop image
 bindsym --release Print exec --no-startup-id scrot \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
 bindsym --release $mod+F4 exec --no-startup-id scrot \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
 # * active window image
 bindsym --release Shift+Print exec --no-startup-id scrot -d 4 -u -z \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
 bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
-'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && lximage-qt ~/Downloads/$f'
+'%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads && eog ~/Downloads/$f'
 
 # Automatically put clients on specific workspaces
 # Assign torrent client to workspace 10
@@ -220,8 +220,8 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
-
+#bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+z mode "$mode_system"
 
 # --------[ Conditionals ]--------------------------------------------------- #
 #
