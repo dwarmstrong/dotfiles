@@ -1,12 +1,9 @@
-# NAME=".bashrc"
-# BLURB="~/.bashrc: executed by bash(1) for non-login shells"
-# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.bashrc"
+#NAME=".bashrc"
+#BLURB="~/.bashrc: executed by bash(1) for non-login shells"
+#SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.bashrc"
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # Unlimited history.
 HISTSIZE=
@@ -56,41 +53,12 @@ shopt -s autocd
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# Uncomment for a colored prompt, if the terminal has the capability.
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
 # Set a two-line prompt; adjust colour based on HOSTNAME; if accessing via ssh
 # include 'ssh-session' message.
-if [ "$color_prompt" = yes ]; then
-    if [[ -n "$SSH_CLIENT" ]]; then
-        ssh_message=": ssh-session"
-    fi
-    if [[ $HOSTNAME = "na"* ]] || [[ $HOSTNAME = "ul"* ]]; then
-        #PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.(\[\e[37;1m\]\!\[\e[32;1m\])-\[\e[37;1m\]\$\[\e[0m\] "
-        PS1="\[\e[32;1m\]:(\[\e[37;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.\[\e[37;1m\]\$\[\e[0m\] "
-    else
-        PS1="\[\e[32;1m\]:(\[\e[31;1m\]\u@\h\[\e[33;1m\]${ssh_message}\[\e[32;1m\])-(\[\e[34;1m\]\w\e[32;1m\])\n:.\[\e[37;1m\]\$\[\e[0m\] "
-    fi
-else
-    PS1="\u@\h:\w\$ "
+if [[ -n "$SSH_CLIENT" ]]; then
+    ssh_message="-ssh_session"
 fi
-unset color_prompt force_color_prompt
+PS1="\[\e[35;1m\]\u \[\e[37;1m\]at \[\e[32;1m\]\h\[\e[33;1m\]${ssh_message} \[\e[37;1m\]in \[\e[34;1m\]\w \n\[\e[37;1m\]\$\[\e[0m\] "
 
 # Enable color support of ls and a few handy aliases.
 if [ -x /usr/bin/dircolors ]; then
@@ -121,14 +89,11 @@ alias gs="git status"
 alias histg="history | grep"
 alias lsl="ls | less"
 alias mkdir="mkdir -pv"
-mcd() { mkdir -p $1; cd $1; } 
+mkcd() { mkdir -p $1; cd $1; } 
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
-alias poweroff="sudo /sbin/poweroff"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias reboot="sudo /sbin/reboot"
-alias shutdown="sudo /sbin/shutdown"
-alias tmuxa="tmux -f $HOME/.tmux.default.conf attach"
+alias tmuxd="tmux -f ~/.tmux.default attach"
 alias wget="wget -c"
 alias zzz="sync && systemctl suspend"
 
@@ -160,7 +125,3 @@ fi
 # Disable XON/XOFF flow control. Enables the use of C-S in other commands.
 # Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
-
-# Use qt5ct to configure theme in Qt5 and set environment variable so that
-# the settings are picked up by Qt apps.
-export QT_QPA_PLATFORMTHEME=qt5ct
