@@ -43,8 +43,9 @@ Xft.hintstyle:  hintslight
 ! Urxvt -----------------------------------------------------------------------
 URxvt.scrollBar: false
 URxvt.saveLines: 8888
-URxvt.font: xft:terminus:pixelsize=18
-URxvt.boldFont: xft:terminus:bold:pixelsize=18
+URxvt.font: xft:terminus:pixelsize=12
+URxvt.boldFont: xft:terminus:bold:pixelsize=12
+URxvt.letterSpace: -2
 URxvt.perl-ext-common: default,matcher,tabbed
 URxvt.tabbed.tabbar-fg: 15
 URxvt.tabbed.tabbar-bg: 0
