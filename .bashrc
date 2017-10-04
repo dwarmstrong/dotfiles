@@ -125,3 +125,7 @@ fi
 # Disable XON/XOFF flow control. Enables the use of C-S in other commands.
 # Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
+
+# Set TERM to make urxt and ssh sessions play nice and squash problems like
+# "'rxvt-unicode-256color': unknown terminal type."
+export TERM='xterm-256color'
