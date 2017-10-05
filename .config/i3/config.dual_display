@@ -20,7 +20,7 @@ bar {
     output PRIMARY
     position bottom
     status_command i3status --config ~/.config/i3/STATUS_CONF
-    font pango:Terminus 11px
+    font pango:Terminus Bold Semi-Condensed 8
     colors {
         focused_workspace #3daee9 #3daee9 #ffffff
         inactive_workspace #4d4d4d #4d4d4d #ffffff
@@ -32,7 +32,7 @@ bar {
     position bottom
     tray_output none
     status_command i3status --config ~/.config/i3/i3status-small.conf
-    font pango:Terminus 11px
+    font pango:Terminus Bold Semi-Condensed 8
     colors {
         focused_workspace #3daee9 #3daee9 #ffffff
         inactive_workspace #4d4d4d #4d4d4d #ffffff

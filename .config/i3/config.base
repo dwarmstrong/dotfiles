@@ -1,19 +1,15 @@
-# NAME="~/.config/i3/config"
-# BLURB="Tiling window manager i3 configuration"
+#NAME="~/.config/i3/config"
+#BLURB="Tiling window manager i3 configuration"
 #
-# Config built at runtime by i3wm_conf.
-# SOURCE="https://github.com/vonbrownie/homebin/blob/master/i3wm_conf"
+#Configuration generated at runtime by `i3wm_conf`.
+#SOURCE="https://github.com/vonbrownie/homebin/blob/master/i3wm_conf"
 
 
 # --------[ Base ]----------------------------------------------------------- #
 #
-# NAME="~/.config/i3/config.base"
-# BLURB="Default configuration"
-# SOURCE="
-# https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.base"
-#
-# Very helpful! http://i3wm.org/docs/userguide.html
-
+#NAME="~/.config/i3/config.base"
+#BLURB="Default i3wm configuration"
+#SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.base"
 
 # --------[ WM ]------------------------------------------------------------- #
 #
@@ -53,8 +49,8 @@ hide_edge_borders both
 # Enable floating mode
 for_window [class="VirtualBox"] floating enable
 for_window [class="VirtualBox"] border normal
-for_window [class="vlc"] floating enable
-for_window [class="vlc"] border normal
+for_window [class="Vlc"] floating enable
+for_window [class="Vlc"] border normal
 
 # Focus follows mouse
 focus_follows_mouse no

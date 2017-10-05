@@ -18,6 +18,7 @@ order += "wireless wlp1s0"
 #order += "ethernet eth0"
 order += "battery 0"
 order += "load"
+order += "volume master"
 order += "cpu_temperature 0"
 order += "tztime local"
 
@@ -41,6 +42,12 @@ battery 0 {
 
 load {
         format = " %1min.:%5min.:%15min "
+}
+
+volume master {
+        format = " VOL %volume "
+        format_muted = " VOL muted (%volume) "
+        device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
 
 cpu_temperature 0 {
