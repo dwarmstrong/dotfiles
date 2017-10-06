@@ -9,10 +9,9 @@
     XF86MonBrightnessUp
 
 # Volume mute/decrease/increase
-# paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
-"paVolume -m"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
     XF86AudioMute
-"paVolume -d"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
     XF86AudioLowerVolume
-"paVolume -u"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
     XF86AudioRaiseVolume

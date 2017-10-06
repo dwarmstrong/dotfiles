@@ -16,18 +16,17 @@ F6
 F7
 
 # Volume mute/decrease/increase
-# paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
-"paVolume -m"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 F8
-"paVolume -m"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 XF86AudioMute
-"paVolume -d"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
 F9
-"paVolume -d"
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
 XF86AudioLowerVolume
-"paVolume -u"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
 F10
-"paVolume -u"
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
 XF86AudioRaiseVolume
 
 # Page up/down, home, end
