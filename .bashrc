@@ -108,12 +108,12 @@ fi
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
+
+# By default, Bash only tab-completes commands, filenames, and variables.
+# The package `bash-completion` extends this by adding more specialized
+# tab completions for common commands and their options.
+if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
 fi
 
 # Setup keychain for ssh-agent management.
