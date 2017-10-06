@@ -5,14 +5,12 @@
 #SOURCE="https://github.com/vonbrownie/homebin/blob/master/i3wm_conf"
 
 
-# --------[ Base ]----------------------------------------------------------- #
-#
+# --------[ Base ]-------------------------------------------------------------
 #NAME="~/.config/i3/config.base"
 #BLURB="Default i3wm configuration"
 #SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.base"
 
-# --------[ WM ]------------------------------------------------------------- #
-#
+# --------[ WM ]---------------------------------------------------------------
 # Modifier key set to ALT
 set $mod Mod1
 
@@ -24,8 +22,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exit
 
 
-# --------[ Windows ]-------------------------------------------------------- #
-#
+# --------[ Windows ]---------------------------------------------------------- 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # Remove tabs from windows and replace them with thin coloured bars by reducing
@@ -118,8 +115,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+q kill
 
 
-# --------[ Workspaces ]----------------------------------------------------- #
-#
+# --------[ Workspaces ]------------------------------------------------------- 
 # Layout mode
 workspace_layout tabbed
 
@@ -162,8 +158,7 @@ bindsym $mod+o split h
 bindsym $mod+v split v
 
 
-# --------[ Applications ]--------------------------------------------------- #
-#
+# --------[ Applications ]-----------------------------------------------------
 # Auto-start applications at 'startx' are listed in ~/.xinitrc
 # Source: https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc
 
@@ -199,8 +194,7 @@ assign [instance="transmission-qt"] 10
 assign [class="Rhythmbox"] 10
 
 
-# --------[ Lock/Logout/Suspend/Reboot/Shutdown ]---------------------------- #
-#
+# --------[ Lock/Logout/Suspend/Reboot/Shutdown ]------------------------------ 
 # See https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
 set $Locker i3lock -i ~/.i3lock.png && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, \
@@ -219,5 +213,4 @@ mode "$mode_system" {
 #bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+z mode "$mode_system"
 
-# --------[ Conditionals ]--------------------------------------------------- #
-#
+# --------[ Conditionals ]-----------------------------------------------------

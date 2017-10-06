@@ -3,8 +3,7 @@
 # SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.config/i3/config.dual_display"
 
 
-# --------[ Workspaces ]----------------------------------------------------- #
-#
+# --------[ Workspaces ]------------------------------------------------------- 
 # Automatically place workspaces on specific displays
 # * external display =  PRIMARY
 # * laptop display =    SECOND
@@ -12,15 +11,14 @@ workspace 1 output PRIMARY
 workspace 10 output SECOND
 
 
-# --------[ Applications ]--------------------------------------------------- #
-#
+# --------[ Applications ]-----------------------------------------------------
 # Start i3bar to display a workspace bar on the external (primary) display
 # (plus the system information i3status finds out, if available)
 bar {
     output PRIMARY
     position bottom
     status_command i3status --config ~/.config/i3/STATUS_CONF
-    font pango:Terminus Bold Semi-Condensed 8
+    font pango:Liberation Mono Bold 10
     colors {
         focused_workspace #3daee9 #3daee9 #ffffff
         inactive_workspace #4d4d4d #4d4d4d #ffffff
@@ -32,7 +30,7 @@ bar {
     position bottom
     tray_output none
     status_command i3status --config ~/.config/i3/i3status-small.conf
-    font pango:Terminus Bold Semi-Condensed 8
+    font pango:Liberation Mono Bold 10
     colors {
         focused_workspace #3daee9 #3daee9 #ffffff
         inactive_workspace #4d4d4d #4d4d4d #ffffff

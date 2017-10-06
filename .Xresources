@@ -4,61 +4,62 @@
 
 ! Refresh config by running ``xrdb -merge ~/.Xresources``
 
-! Fonts -----------------------------------------------------------------------
-!Xft.dpi:        96
+! --------[ Xft ]--------------------------------------------------------------
+!Xft.dpi:       96
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
-! Terminal colours ------------------------------------------------------------
-*foreground:       #6fc3df
-*background:       #000000
-*cursorColor:      #ef2929
+! --------[ Colours ]----------------------------------------------------------
+*foreground:    #6fc3df
+*background:    #000000
+*cursorColor:   #ef2929
 ! black
-*color0:           #000000
-*color8:           #555753
+*color0:        #000000
+*color8:        #555753
 ! red
-*color1:           #cc0000
-*color9:           #ef2929
+*color1:        #cc0000
+*color9:        #ef2929
 ! green
-*color2:           #4e9a06
-*color10:          #8ae234
+*color2:        #4e9a06
+*color10:       #8ae234
 ! yellow
-*color3:           #c4a000
-*color11:          #fce94f
+*color3:        #c4a000
+*color11:       #fce94f
 ! blue
-*color4:           #3465a4
-*color12:          #025cac
+*color4:        #3465a4
+*color12:       #025cac
 ! magenta
-*color5:           #75507b
-*color13:          #ad7fa8
+*color5:        #75507b
+*color13:       #ad7fa8
 ! cyan
-*color6:           #06989a
-*color14:          #96cdfe
+*color6:        #06989a
+*color14:       #96cdfe
 ! white
-*color7:           #d3d7cf
-*color15:          #eeeeec
+*color7:        #d3d7cf
+*color15:       #eeeeec
 
-! Urxvt -----------------------------------------------------------------------
-URxvt.scrollBar: false
-URxvt.saveLines: 8888
-URxvt.font: xft:terminus:pixelsize=14
-URxvt.boldFont: xft:terminus:bold:pixelsize=14
-URxvt.letterSpace: -2
-URxvt.perl-ext-common: default,matcher,tabbed
+! --------[ Urxvt ]------------------------------------------------------------
+URxvt.scrollBar:    false
+URxvt.saveLines:    8888
+
+URxvt.font:     xft:Liberation Mono:pixelsize=15
+URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=15
+
+URxvt.perl-ext-common:  default,matcher,tabbed
 URxvt.tabbed.tabbar-fg: 15
 URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 15
-URxvt.tabbed.tab-bg: 12
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.matcher.button: 1
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    12
+URxvt.url-launcher:     /usr/bin/firefox
+URxvt.matcher.button:   1
 ! add a spot of colour to man pages
 URxvt.colorIT:      #87af5f
 URxvt.colorBD:      #d7d7d7
 URxvt.colorUL:      #87afd7
 
-! Rofi ------------------------------------------------------------------------
+! --------[ Rofi ]-------------------------------------------------------------
 ! "Hide scroll-bar" Set from: File
 rofi.hide-scrollbar:    true
 ! "Separator style (none, dash, solid)" Set from: File
