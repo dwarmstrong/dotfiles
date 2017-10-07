@@ -23,6 +23,13 @@ xset s off -dpms
 # Disable system beep
 xset b off
 
+# Set keyboard layout to colemak
+setxkbmap -model pc105 -layout us -variant colemak
+
+# Start the gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # Janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
 
@@ -32,7 +39,6 @@ xset b off
 sleep 2
 (sleep 15; ~/bin/keyboardconf) &
 [ -x /usr/bin/nm-applet ] && nm-applet &
-volnoti -t 2 &
 
 # Start window manager
 exec i3

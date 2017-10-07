@@ -45,8 +45,8 @@ load {
 }
 
 volume master {
-        format = " VOL %volume "
-        format_muted = " VOL muted (%volume) "
+        format = " V: %volume "
+        format_muted = " V: muted (%volume) "
         device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
 

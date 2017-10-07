@@ -16,7 +16,7 @@ workspace 10 output SECOND
 # (plus the system information i3status finds out, if available)
 bar {
     output PRIMARY
-    position bottom
+    position top
     status_command i3status --config ~/.config/i3/STATUS_CONF
     font pango:Liberation Mono Bold 10
     colors {
@@ -27,7 +27,7 @@ bar {
 
 bar {
     output SECOND
-    position bottom
+    position top
     tray_output none
     status_command i3status --config ~/.config/i3/i3status-small.conf
     font pango:Liberation Mono Bold 10
