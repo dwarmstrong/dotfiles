@@ -3,7 +3,10 @@
 #SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.bashrc"
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # Unlimited history.
 HISTSIZE=
@@ -46,21 +49,66 @@ alias starthistory="set -o history"
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
 # https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 
-# Automatically prepend cd when entering just a path in the shell.
-shopt -s autocd
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
 
 # Set a two-line prompt; adjust colour based on HOSTNAME; if accessing via ssh
 # include 'ssh-session' message.
 if [[ -n "$SSH_CLIENT" ]]; then
     ssh_message="-ssh_session"
 fi
-PS1="\[\e[35;1m\]\u \[\e[37;1m\]at \[\e[32;1m\]\h\[\e[33;1m\]${ssh_message} \[\e[37;1m\]in \[\e[34;1m\]\w \n\[\e[37;1m\]\$\[\e[0m\] "
+if [ "$color_prompt" = yes ]; then
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1="${debian_chroot:+($debian_chroot)}\[\e[35;1m\]\u \[\e[37;1m\]at \[\e[32;1m\]\h\[\e[33;1m\]${ssh_message} \[\e[37;1m\]in \[\e[34;1m\]\w \n\[\e[37;1m\]\$\[\e[0m\] "
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
 
-# Enable color support of ls and a few handy aliases.
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls="ls -aFlhv --color=auto"
@@ -72,48 +120,49 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep="egrep --color=auto"
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # More aliases and functions.
-alias ..="cd .."
 alias aaaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
 alias df="df -hT --total"
-alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
-dsrt() { du -ach $1 | sort -h; }
 alias free="free -h"
 alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias histg="history | grep"
-alias lsl="ls | less"
 alias mkdir="mkdir -pv"
-mkcd() { mkdir -p $1; cd $1; } 
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias tmuxd="tmux -f ~/.tmux.default attach"
-alias wget="wget -c"
-alias zzz="sync && systemctl suspend"
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Enable programmable completion features (you don't need to enable
+# enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-
-# By default, Bash only tab-completes commands, filenames, and variables.
-# The package `bash-completion` extends this by adding more specialized
-# tab completions for common commands and their options.
-if [ -f /usr/share/bash-completion/bash_completion ]; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
 
 # Setup keychain for ssh-agent management.
@@ -129,3 +178,8 @@ stty -ixon
 # Set TERM to make urxt and ssh sessions play nice and squash problems like
 # "'rxvt-unicode-256color': unknown terminal type."
 export TERM='xterm-256color'
+
+# Set cursor colour
+if [ -t 1 ]; then
+    echo -e "\e]12;red\a"
+fi
