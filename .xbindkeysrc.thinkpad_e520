@@ -4,15 +4,14 @@
 
 # Backlight decrease/increase
 "xbacklight -dec 10"
-    XF86MonBrightnessDown
+    F7
 "xbacklight -inc 10"
-    XF86MonBrightnessUp
+    F8
 
 # Volume mute/decrease/increase
-# paVolume - https://github.com/vonbrownie/homebin/blob/master/paVolume
-"paVolume -m"
-    XF86AudioMute
-"paVolume -d"
-    XF86AudioLowerVolume
-"paVolume -u"
-    XF86AudioRaiseVolume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    F1
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    F2
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    F3

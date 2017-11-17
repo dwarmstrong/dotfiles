@@ -46,8 +46,8 @@ hide_edge_borders both
 # Enable floating mode
 for_window [class="VirtualBox"] floating enable
 for_window [class="VirtualBox"] border normal
-for_window [class="Vlc"] floating enable
-for_window [class="Vlc"] border normal
+for_window [class="vlc"] floating enable
+for_window [class="vlc"] border normal
 
 # Focus follows mouse
 focus_follows_mouse no
@@ -62,10 +62,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Alternatively, you can use the cursor keys
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # Move focused window
 bindsym $mod+Shift+h move left
@@ -74,10 +74,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # Alternatively, you can use the cursor keys
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -192,7 +192,7 @@ bindsym --release Shift+F4 exec --no-startup-id scrot -d 4 -u -z \
 assign [instance="transmission-qt"] 10
 # Assign music player to workspace 10
 assign [class="Rhythmbox"] 10
-
+assign [class="Audacious"] 10
 
 # --------[ Lock/Logout/Suspend/Reboot/Shutdown ]------------------------------ 
 # See https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
@@ -202,10 +202,12 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, \
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && sync && systemctl suspend, \
-    mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    #bindsym s exec --no-startup-id $Locker && sync && systemctl suspend, mode "default"
+    bindsyn s exec --no-startup-id $Locker && sync && zzz, mode "default"
+    #bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsyn r exec --no-startup-id reboot, mode "default"
+    #bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsyn Shift+s exec --no-startup-id poweroff -i, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"

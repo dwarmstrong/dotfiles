@@ -41,18 +41,19 @@ battery 0 {
 }
 
 load {
-        format = " %1min.:%5min.:%15min "
+        format = " %1min %5min %15min "
 }
 
 volume master {
         format = " V: %volume "
         format_muted = " V: muted (%volume) "
-        device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
+        device = "sysdefault"
+        #device = "pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
 }
 
 cpu_temperature 0 {
 	format = " %degrees C "
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
 }
 
 tztime local {

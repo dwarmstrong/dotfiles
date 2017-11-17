@@ -27,8 +27,8 @@ xset b off
 setxkbmap -model pc105 -layout us -variant colemak
 
 # Start the gnome-keyring-daemon
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+#export SSH_AUTH_SOCK
 
 # Janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
@@ -38,7 +38,8 @@ export SSH_AUTH_SOCK
 ~/bin/i3wm_conf &
 sleep 2
 (sleep 15; ~/bin/keyboardconf) &
-[ -x /usr/bin/nm-applet ] && nm-applet &
+#[ -x /usr/bin/nm-applet ] && nm-applet &
+#[ -x /usr/bin/wicd-client ] && wicd-client --tray &
 
 # Start window manager
 exec i3
