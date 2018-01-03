@@ -124,11 +124,12 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # More aliases and functions.
-alias aaaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
 alias df="df -hT --total"
+alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
 alias free="free -h"
 alias gpush="git push -u origin master"
@@ -140,6 +141,7 @@ mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias tmuxd="tmux -f ~/.tmux.default attach"
+alias zzz="sync && systemctl suspend"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -178,6 +180,10 @@ stty -ixon
 # Set TERM to make urxt and ssh sessions play nice and squash problems like
 # "'rxvt-unicode-256color': unknown terminal type."
 export TERM='xterm-256color'
+
+# Use qt5ct to configure theme in Qt5 and set environment variable so that
+# the settings are picked up by Qt apps.
+[[ -x "/usr/bin/qt5ct" ]] && export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Set cursor colour
 if [ -t 1 ]; then
