@@ -11,7 +11,7 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += "wireless wlp8s0"
@@ -53,7 +53,7 @@ volume master {
 
 cpu_temperature 0 {
 	format = " %degrees C "
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon?/temp1_input"
 }
 
 tztime local {
