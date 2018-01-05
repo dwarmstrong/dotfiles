@@ -9,15 +9,15 @@ source-file ~/.tmux.conf
 new-session -s default -d
 
 # Divide first window into 2x2 tile layout
-split-window -h -t default
-split-window -v -t default
-split-window -v -t default
-select-layout -t default tiled
+#split-window -h -t default
+#split-window -v -t default
+#split-window -v -t default
+#select-layout -t default tiled
 
 # Create new 'wiki' window
-new-window -t default -n wiki
+#new-window -t default -n wiki
 
-# Create more windows
+# Create windows
 new-window -t default
 new-window -t default
 
