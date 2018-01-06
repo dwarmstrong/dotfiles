@@ -3,7 +3,7 @@
 ! SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xmodmap.thinkpad_e520"
 
 ! Modify CapsLk into repeating Backspace (else auto-enabled in colemak kb layout)
-!keycode 66 = BackSpace
-!clear Lock
+keycode 66 = BackSpace
+clear Lock
 
 keycode 108 = Alt_R

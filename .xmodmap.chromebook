@@ -10,4 +10,4 @@ keycode 133 = BackSpace
 keycode 108 = Alt_R
 
 ! 'HandlePowerKey=ignore' in /etc/systemd/logind.conf and powerkey to pause
-keycode 124 = Pause
+!keycode 124 = Pause
