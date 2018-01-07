@@ -16,21 +16,21 @@ F6
 F7
 
 # Volume mute/decrease/increase
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+F8
 #"pactl set-sink-mute @DEFAULT_SINK@ toggle"
-#F8
-#"pactl set-sink-mute @DEFAULT_SINK@ toggle"
-"amixer set Master toggle"
-XF86AudioMute
+#"amixer set Master toggle"
+#XF86AudioMute
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+F9
 #"pactl set-sink-volume @DEFAULT_SINK@ -5%"
-#F9
-#"pactl set-sink-volume @DEFAULT_SINK@ -5%"
-"amixer set Master 5%-"
-XF86AudioLowerVolume
+#"amixer set Master 5%-"
+#XF86AudioLowerVolume
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+F10
 #"pactl set-sink-volume @DEFAULT_SINK@ +5%"
-#F10
-#"pactl set-sink-volume @DEFAULT_SINK@ +5%"
-"amixer set Master 5%+"
-XF86AudioRaiseVolume
+#"amixer set Master 5%+"
+#XF86AudioRaiseVolume
 
 # Page up/down, home, end
 #"xvkbd -xsendevent -text '\[Page_Up]'"
