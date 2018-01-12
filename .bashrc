@@ -128,6 +128,7 @@ alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upg
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
+alias bye="sudo /sbin/poweroff"
 alias df="df -hT --total"
 alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
@@ -140,6 +141,7 @@ alias mkdir="mkdir -pv"
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias reboot="sudo /sbin/reboot"
 alias tmuxd="tmux -f ~/.tmux.default attach"
 alias zzz="sync && systemctl suspend"
 
