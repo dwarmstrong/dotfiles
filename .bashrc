@@ -179,9 +179,10 @@ fi
 # Example: forward search in history, and disabling screen freeze in vim.
 stty -ixon
 
-# Set TERM to make urxt and ssh sessions play nice and squash problems like
-# "'rxvt-unicode-256color': unknown terminal type."
-export TERM='xterm-256color'
+# UPDATE: Do *not* do this ... messes with tmux and htop and back color erase.
+###Set TERM to make urxt and ssh sessions play nice and squash problems like
+###"'rxvt-unicode-256color': unknown terminal type."
+###export TERM='xterm-256color'
 
 # Use qt5ct to configure theme in Qt5 and set environment variable so that
 # the settings are picked up by Qt apps.
