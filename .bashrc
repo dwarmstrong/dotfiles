@@ -128,7 +128,6 @@ alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upg
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
-alias bye="sudo /sbin/poweroff"
 alias df="df -hT --total"
 alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
