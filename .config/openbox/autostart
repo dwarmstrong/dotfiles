@@ -1,0 +1,20 @@
+#
+# These things are run when an Openbox X Session is started.
+
+# Background
+[ -f ~/.fehbg ] && ~/.fehbg &
+
+# Detect keyboard and configure xbindkeys + xmodmap
+(sleep 5; ~/bin/keyboardconf) &
+
+# Detect if secondary display attached and make it primary
+~/bin/dldsply -r &
+
+# Notification daemon
+dunst -config ~/.config/dunst/dunstrc &
+
+# Panel
+tint2 &
+
+# Launch terminal
+urxvt &
