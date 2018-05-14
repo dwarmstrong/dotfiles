@@ -140,8 +140,10 @@ alias histg="history | grep"
 alias mkdir="mkdir -pv"
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 alias pgrep="pgrep -a"
+alias poweroff="systemctl poweroff"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias reboot="sudo /sbin/reboot"
+alias reboot="systemctl reboot"
+alias shutdown="sudo /sbin/shutdown"
 alias tmuxd="tmux -f ~/.tmux.default attach"
 alias zzz="sync && systemctl suspend"
 
@@ -186,7 +188,7 @@ stty -ixon
 
 # Use qt5ct to configure theme in Qt5 and set environment variable so that
 # the settings are picked up by Qt apps.
-[[ -x "/usr/bin/qt5ct" ]] && export QT_QPA_PLATFORMTHEME=qt5ct
+#[[ -x "/usr/bin/qt5ct" ]] && export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Set cursor colour
 if [ -t 1 ]; then
