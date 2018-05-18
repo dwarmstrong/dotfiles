@@ -1,20 +1,36 @@
 #
 # These things are run when an Openbox X Session is started.
 
-# Background
-[ -f ~/.fehbg ] && ~/.fehbg &
-
-# Detect keyboard and configure xbindkeys + xmodmap
-(sleep 5; ~/bin/keyboardconf) &
+# Power management
+xfce4-power-manager &
 
 # Detect if secondary display attached and make it primary
 ~/bin/dldsply -r &
 
-# Notification daemon
+# Background
+xsetroot -solid "#000000" &
+(sleep 1; ~/.fehbg) &
+
+# Compositor
+compton -b -c &
+
+# Detect keyboard and configure xbindkeys + xmodmap
+(sleep 5; ~/bin/keyboardconf) &
+
+# Notifications
 dunst -config ~/.config/dunst/dunstrc &
 
 # Panel
 tint2 &
+
+# Clipboard
+clipit &
+
+# Volume control
+volumeicon &
+
+# Network manager (launched by /etc/xdg/autostart/nm-applet.desktop)
+#nm-applet &
 
 # Launch terminal
 urxvt &

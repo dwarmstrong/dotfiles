@@ -6,13 +6,32 @@
                 file:///usr/share/openbox/menu.xsd">
 
 <menu id="root-menu" label="Openbox 3">
-  <item label="Terminal">
+<item label="Terminal">
     <action name="Execute"><execute>x-terminal-emulator</execute></action>
-  </item>
-  <item label="Firefox">
-      <action name="Execute"><execute>/usr/local/bin/firefox</execute></action>
-  </item>
-  <!-- This requires the presence of the 'menu' package to work -->
+</item>
+<menu id="scrot-menu" label="Screenshots">
+<item label="Now">
+    <action name="Execute"><execute>
+    scrot -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    </execute></action>
+</item>
+<item label="In 5 Seconds...">
+    <action name="Execute"><execute>
+    scrot -d 5 -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    </execute></action>
+</item>
+<item label="Selected Area...">
+    <action name="Execute"><execute>
+    scrot -s '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    </execute></action>
+</item>
+<item label="Desktop">
+    <action name="Execute"><execute>
+    scrot '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    </execute></action>
+</item>
+</menu>
+<!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
   <separator />
   <menu id="client-list-menu" />
