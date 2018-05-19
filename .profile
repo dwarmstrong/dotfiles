@@ -21,8 +21,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes programs installed in user's home directory
-# volnoti - volume notification daemon
-if [ -d "$HOME/opt/volnoti/bin" ] ; then
-    PATH="$HOME/opt/volnoti/bin:$PATH"
-fi
+# qt5-style-plugins - provides the GTK+ 2 platformtheme for QT applications
+export QT_QPA_PLATFORMTHEME=gtk2
