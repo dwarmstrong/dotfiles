@@ -47,7 +47,7 @@ URxvt.saveLines:    8888
 URxvt.font:     xft:Liberation Mono:pixelsize=15
 URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=15
 
-Urxvt*perl-lib:         /usr/lib/urxvt/perl/
+Urxvt*perl-lib:         /usr/lib/x86_64-linux-gnu/urxvt/perl/
 URxvt.perl-ext-common:  default,matcher,tabbed
 URxvt.tabbed.tabbar-fg: 15
 URxvt.tabbed.tabbar-bg: 0
