@@ -11,6 +11,8 @@
 # Key mappings
 #[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap    # Managed by keyboardconf
 
+xsetroot -solid "#000000"
+
 # Config parameters for X client applications
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
@@ -28,3 +30,4 @@ setxkbmap -model pc105 -layout us -variant colemak
 
 # Start window manager
 exec openbox-session
+#exec ck-launch-session dbus-launch openbox-session

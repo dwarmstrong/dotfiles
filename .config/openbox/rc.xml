@@ -263,7 +263,7 @@
         </finalactions>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
+    <!-- Keybindings to launch applications -->
     <keybind key="A-F2">
       <action name="Execute">
         <command>rofi -monitor primary -show run</command>
