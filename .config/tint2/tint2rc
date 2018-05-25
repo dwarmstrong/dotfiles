@@ -202,7 +202,7 @@ clock_uwheel_command =
 clock_dwheel_command = 
 
 # Battery
-battery_tooltip = 1
+battery_tooltip = 0
 battery_low_status = 10
 battery_low_cmd = notify-send "Battery Low !"
 bat1_font = Ubuntu Condensed Bold 12
