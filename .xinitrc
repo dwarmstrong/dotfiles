@@ -16,11 +16,12 @@ xsetroot -solid "#000000"
 # Config parameters for X client applications
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-# Disable DPMS and turn off screen blanking
-xset s off -dpms
+# Disable DPMS and turn off screen blanking ... Note that Xscreensaver and
+# xfce4-power-manager use their own DPMS settings and override xset config
+#xset s off -dpms
 
 # Disable system beep
-xset b off
+#xset b off
 
 # Set keyboard layout to colemak
 setxkbmap -model pc105 -layout us -variant colemak
@@ -30,4 +31,3 @@ setxkbmap -model pc105 -layout us -variant colemak
 
 # Start window manager
 exec openbox-session
-#exec ck-launch-session dbus-launch openbox-session
