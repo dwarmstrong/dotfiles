@@ -327,7 +327,7 @@
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
-      <mousebind button="A-Up" action="Click">
+      <!-- <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
@@ -356,7 +356,7 @@
         <action name="SendToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+      </mousebind> -->
     </context>
     <context name="Titlebar">
       <mousebind button="Left" action="Drag">
@@ -550,7 +550,7 @@
       </mousebind>
     </context>
     <context name="Desktop">
-      <mousebind button="Up" action="Click">
+        <!-- <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
@@ -579,7 +579,7 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+      </mousebind> -->
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -603,7 +603,7 @@
       </mousebind>
     </context>
     <context name="MoveResize">
-      <mousebind button="Up" action="Click">
+        <!-- <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
         </action>
@@ -622,7 +622,7 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+      </mousebind> -->
     </context>
   </mouse>
   <menu>
