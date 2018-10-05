@@ -173,7 +173,7 @@ fi
 
 # Setup keychain for ssh-agent management.
 if [ -x /usr/bin/keychain ]; then
-    keychain ~/.ssh/id_rsa
+    keychain ~/.ssh/id_ed25519
     . ~/.keychain/$HOSTNAME-sh
 fi
 

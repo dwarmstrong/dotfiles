@@ -27,7 +27,7 @@ tint2 &
 clipit &
 
 # Volume control
-volumeicon &
+(sleep 2; volumeicon) &
 
 # Network manager (launched by /etc/xdg/autostart/nm-applet.desktop)
 #nm-applet &
