@@ -758,6 +758,11 @@
       <maximized>false</maximized>
       <decor>yes</decor>
     </application>
+    <!-- Virtualbox -->
+    <application class="VirtualBox">
+      <maximized>false</maximized>
+      <decor>yes</decor>
+    </application>
     <!-- Transmission -->
     <application name="transmission-gtk">
       <desktop>4</desktop>
