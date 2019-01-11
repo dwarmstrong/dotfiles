@@ -6,10 +6,10 @@
 
 ! --------[ Xft ]--------------------------------------------------------------
 !Xft.dpi:       96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
+!Xft.antialias:  true
+!Xft.rgba:       rgb
+!Xft.hinting:    true
+!Xft.hintstyle:  hintslight
 
 ! --------[ Colours ]----------------------------------------------------------
 *foreground:    #6fc3df
@@ -53,7 +53,7 @@ URxvt.tabbed.tabbar-fg: 15
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    15
 URxvt.tabbed.tab-bg:    12
-URxvt.url-launcher:     /usr/local/bin/firefox
+URxvt.url-launcher:     firefox
 URxvt.matcher.button:   1
 ! add a spot of colour to man pages
 URxvt.colorIT:      #87af5f
