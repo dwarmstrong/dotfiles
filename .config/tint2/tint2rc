@@ -23,11 +23,11 @@ rounded = 0
 border_width = 2
 border_sides = B
 background_color = #000000 0
-border_color = #42A5F5 80
+border_color = #FFFF00 80
 background_color_hover = #000000 30
-border_color_hover = #42A5F5 90
+border_color_hover = #FFFF00 90
 background_color_pressed = #000000 50
-border_color_pressed = #42A5F5 100
+border_color_pressed = #FFFF00 100
 
 # Background 3: Default task, Iconified task
 rounded = 0
@@ -45,11 +45,11 @@ rounded = 0
 border_width = 2
 border_sides = B
 background_color = #000000 0
-border_color = #00A9FF 80
+border_color = #E81431 80
 background_color_hover = #000000 20
-border_color_hover = #00A9FF 100
+border_color_hover = #E81431 100
 background_color_pressed = #000000 60
-border_color_pressed = #00A9FF 100
+border_color_pressed = #E81431 100
 
 # Background 5: Inactive taskbar
 rounded = 0
@@ -78,9 +78,9 @@ rounded = 0
 border_width = 1
 border_sides = TBLR
 background_color = #000000 80
-border_color = #42A5F5 80
+border_color = #329B61 80
 background_color_hover = #000000 80
-border_color_hover = #42A5F5 80
+border_color_hover = #329B61 80
 background_color_pressed = #000000 80
 border_color_pressed = #000000 80
 
@@ -88,11 +88,11 @@ border_color_pressed = #000000 80
 rounded = 0
 border_width = 0
 border_sides = B
-background_color = #42A5F5 80
+background_color = #329B61 80
 border_color = #000000 0
-background_color_hover = #42A5F5 80
+background_color_hover = #329B61 80
 border_color_hover = #000000 0
-background_color_pressed = #42A5F5 80
+background_color_pressed = #329B61 80
 border_color_pressed = #000000 0
 
 #===============================================
@@ -170,7 +170,7 @@ task_iconified_icon_asb = 70 0 0
 # Fonts
 task_font = Ubuntu Condensed Regular 11
 task_font_color = #FFFFFF 65
-task_active_font_color = #42A5F5 90
+task_active_font_color = #FFFFFF 90
 task_urgent_font_color = #00A9FF 100
 task_iconified_font_color = #FFFFFF 65
 font_shadow = 0
@@ -186,10 +186,10 @@ systray_monitor = 1
 # Clock
 time1_format = %j:%d:%H:%M
 time2_format = 
-time1_font = Ubuntu Condensed Bold 13
+time1_font = Ubuntu Condensed Bold 12
 time1_timezone = 
 time2_timezone = 
-time2_font = Ubuntu Condensed Bold 10
+time2_font = Ubuntu Condensed Bold 12
 clock_font_color = #ffffff 100
 clock_padding = 6 0
 clock_background_id = 8
