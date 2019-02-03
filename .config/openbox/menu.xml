@@ -12,22 +12,22 @@
 <menu id="scrot-menu" label="Screenshots">
 <item label="Now">
     <action name="Execute"><execute>
-    scrot -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    scrot -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
     </execute></action>
 </item>
 <item label="In 5 Seconds...">
     <action name="Execute"><execute>
-    scrot -d 5 -u -z '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    scrot -d 5 -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
     </execute></action>
 </item>
 <item label="Selected Area...">
     <action name="Execute"><execute>
-    scrot -s '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    scrot -s 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
     </execute></action>
 </item>
 <item label="Desktop">
     <action name="Execute"><execute>
-    scrot '%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
+    scrot 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/Downloads/ &amp; mirage ~/Downloads/$f'
     </execute></action>
 </item>
 </menu>
