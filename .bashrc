@@ -133,7 +133,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # More aliases and functions.
-alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias aaa="generatePkgList -d ~/code/ubuntu && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
