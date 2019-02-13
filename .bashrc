@@ -154,6 +154,7 @@ alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="systemctl reboot"
 alias shutdown="sudo /sbin/shutdown"
 alias tmuxd="tmux -f ~/.tmux.default attach"
+alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
 alias zzz="sync && systemctl suspend"
 
 # Colored GCC warnings and errors.
