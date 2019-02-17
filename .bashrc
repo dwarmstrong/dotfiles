@@ -124,7 +124,7 @@ esac
 # Enable color support of ls and also add handy aliases.
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -aFlhv --color=auto'
+    alias lss='ls -aFlhv --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
@@ -133,26 +133,27 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # More aliases and functions.
-alias aaa="generatePkgList -d ~/code/ubuntu && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
-alias df="df -hT --total"
+alias dff="df -hT --total"
 alias dmesg="sudo dmesg"
 alias dpkgg="dpkg -l | grep -i"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
-alias free="free -h"
+alias freee="free -h"
 alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias histg="history | grep"
-alias mkdir="mkdir -pv"
+alias lsblkk="lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,UUID"
+alias mkdirr="mkdir -pv"
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
-alias pgrep="pgrep -a"
+alias pgrepp="pgrep -a"
 alias poweroff="systemctl poweroff"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="systemctl reboot"
-alias shutdown="sudo /sbin/shutdown"
+alias bye="sudo /sbin/shutdown"
 alias tmuxd="tmux -f ~/.tmux.default attach"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
 alias zzz="sync && systemctl suspend"
