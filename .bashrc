@@ -2,8 +2,11 @@
 #
 # Source: https://github.com/vonbrownie/dotfiles/blob/master/.bashrc
 
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# If not running interactively, don't do anything.
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # == Prompt ==
 
@@ -18,12 +21,11 @@ CYAN="\[\e[1;36m\]"
 WHITE="\[\e[1;37m\]"
 RESET="\[\e[0m\]"
 
-# set a two-line prompt; if accessing via ssh include 'ssh-session' message.
+# Set a two-line prompt. If accessing via ssh include 'ssh-session' message.
 if [[ -n "$SSH_CLIENT" ]]; then
     ssh_message="-ssh_session"
 fi
 PS1="${MAGENTA}\u ${WHITE}at ${GREEN}\h${YELLOW}${ssh_message} ${WHITE}in ${BLUE}\w \n$WHITE\$${RESET} "
-#PS1='[\u@\h \W]\$ '
 
 # == Functions ==
 
@@ -37,6 +39,7 @@ alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
+alias down="cd ~/Downloads && l"
 alias dpkgg="dpkg -l | grep -i"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
 alias gpush="git push -u origin master"
@@ -58,42 +61,42 @@ fi
 
 # == History ==
 
-# unlimited history.
+# Unlimited history.
 HISTSIZE=
 HISTFILESIZE=
 
-# change the history file location because certain bash sessions truncate
-# ~/.bash_history upon close.
+# Change the history file location because certain bash sessions
+# truncate ~/.bash_history upon close.
 HISTFILE=~/.bash_unlimited_history
 
-# default is to write history at the end of each session, overwriting the
-# existing file with an updated version. If logged in with multiple sessions,
-# only the last session to exit will have its history saved.
+# Default is to write history at the end of each session, overwriting
+# the existing file with an updated version. If logged in with multiple
+# sessions, only the last session to exit will have its history saved.
 #
-# have prompt write to history after every command and append to the history
-# file, don't overwrite it.
+# Require  prompt write to history after every command and append to the
+# history file, don't overwrite it.
 shopt -s histappend
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-# ... then you can see the commands from all shells in near real-time
+# Now you can see the commands from all shells in near real-time
 # in ~/.bash_unlimited history. Starting a new shell displays the
 # combined history from all terminals.
 
-# add a timestamp per entry. Useful for context when viewing logfiles.
+# Add a timestamp per entry. Useful for context when viewing logfiles.
 HISTTIMEFORMAT="%FT%T  "
 
-# save all lines of a multiple-line command in the same history entry.
+# Save all lines of a multiple-line command in the same history entry.
 shopt -s cmdhist
 
-# reedit a history substitution line if it failed.
+# Re-edit a history substitution line if it failed.
 shopt -s histreedit
 
-# edit a recalled history line before executing.
+# Edit a recalled history line before executing.
 shopt -s histverify
 
-# don't put lines starting with space in the history.
+# Do not put lines starting with space in the history.
 HISTCONTROL=ignorespace
 
-# toggle history off/on for a current shell.
+# Toggle history off/on for a current shell.
 alias stophistory="set +o history"
 alias starthistory="set -o history"
 
@@ -103,21 +106,19 @@ alias starthistory="set -o history"
 
 # == Misc ==
 
-# when resizing a terminal emulator, check the window size after each command
-# and, if necessary, update the values of LINES and COLUMNS. 
+# When resizing a terminal emulator, check the window size after each
+# command and, if necessary, update the values of LINES and COLUMNS. 
 shopt -s checkwinsize
 
-# *pkgfile* includes a "command not found" hook that will automatically search
-# the official repositories, when entering an unrecognized command
-if [[ -a /usr/share/doc/pkgfile/command-not-found.bash ]]; then
-	source /usr/share/doc/pkgfile/command-not-found.bash
-fi
-
-# keychain for ssh-agent management
+# Use `keychain` for ssh-agent management
 if [[ -x /usr/bin/keychain ]]; then
-	eval $(keychain --eval --quiet --noask id_ed25519)
+	keychain ~/.ssh/id_ed25519                                                      
+	. ~/.keychain/$HOSTNAME-sh
 fi
 
-# disable XON/XOFF flow control. Enables the use of C-S in other commands.
-# example: forward search in history, and disabling screen freeze in vim.
+# Style QT apps with the chosen GTK theme.
+export QT_QPA_PLATFORMTHEME=gtk2
+
+# Disable XON/XOFF flow control. Enables use of C-S in other commands.
+# Examples: forward search in history; disable screen freeze in vim.
 stty -ixon
