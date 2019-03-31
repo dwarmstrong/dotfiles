@@ -52,6 +52,7 @@ alias p="less"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="sudo systemctl reboot"
 alias tmuxd="tmux -f ~/.tmux.default attach"
+alias virtualBoxFusion="VirtualBox -style Fusion %U"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
 alias zzz="sync && sudo systemctl suspend"
 
