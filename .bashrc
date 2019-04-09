@@ -11,8 +11,6 @@ esac
 # == Prompt ==
 
 # colour codes
-BLACK="\[\e[1;30m\]"
-RED="\[\e[1;31m\]"
 GREEN="\[\e[1;32m\]"
 YELLOW="\[\e[1;33m\]"
 BLUE="\[\e[1;34m\]"
@@ -30,11 +28,12 @@ PS1="${MAGENTA}\u ${WHITE}at ${GREEN}\h${YELLOW}${ssh_message} ${WHITE}in ${BLUE
 # == Functions ==
 
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
+c() { cd "$@" && ls -aFlhNv --color=auto; }
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 
 # == Aliases ==
 
-alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 alias bye="sudo systemctl poweroff"
