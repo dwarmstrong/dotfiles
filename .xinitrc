@@ -1,33 +1,33 @@
 #!/bin/sh
-# NAME=".xinitrc"
-# BLURB="Read by xinit and by its front-end startx"
-# SOURCE="https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc"
+# ~/.xinitrc
+#
+# Source: https://github.com/vonbrownie/dotfiles/blob/master/.xinitrc
 
-# Launch applications at `startx` listed in `~/.config/openbox/autostart
+# launch applications at `startx` listed in `~/.config/openbox/autostart
 
-# Bind commands to certain keys or key combos
+# bind commands to certain keys or key combos
 #[ -f ~/.xbindkeysrc ] && xbindkeys     # Managed by keyboardconf in autostart
 
-# Key mappings
+# key mappings
 #[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap    # Managed by keyboardconf
 
 xsetroot -solid "#000000"
 
-# Config parameters for X client applications
+# config parameters for X client applications
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-# Disable DPMS and turn off screen blanking ... Note that Xscreensaver and
+# disable DPMS and turn off screen blanking ... Note that Xscreensaver and
 # xfce4-power-manager use their own DPMS settings and override xset config
 #xset s off -dpms
 
-# Disable system beep
+# disable system beep
 #xset b off
 
-# Set keyboard layout to colemak
+# set keyboard layout to colemak
 setxkbmap -model pc105 -layout us -variant colemak
 
-# Janitor
+# janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
 
-# Start window manager
+# start window manager
 exec openbox-session
