@@ -29,6 +29,7 @@ PS1="${MAGENTA}\\u ${WHITE}at ${GREEN}\\h${YELLOW}${ssh_message} ${WHITE}in ${BL
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
 c() { cd "$@" && ls -aFlhNv --color=auto; }
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
+mostUsedDiskSpaceByFile() { find $1 -type f -exec wc -c {} \; | sort -n; }
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 
 # == Aliases ==
@@ -48,6 +49,7 @@ alias gs="git status"
 alias l="ls -aFlhNv --color=always"
 alias lsblkk="lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,UUID"
 alias mkdirr="mkdir -pv"
+alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
 alias p="less -R"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="sudo systemctl reboot"
