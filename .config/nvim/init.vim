@@ -1,7 +1,8 @@
-" File: init.vim
-" Link: https://github.com/vonbrownie/dotfiles
+" ~/.config/nvim/init.vim
+"
+" Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/nvim/init.vim
 
-" == General Configuration ==
+" = General Configuration =
 
 set nocompatible            " Disable compatibility to old-time vi
 set showmatch               " Show matching brackets.
@@ -19,7 +20,7 @@ set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
 
 " color scheme
-colorscheme tir_black
+"colorscheme tir_black
 
 " n  Normal mode map. Defined using ':nmap' or ':nnoremap'.
 " i  Insert mode map. Defined using ':imap' or ':inoremap'.
@@ -34,7 +35,7 @@ inoremap <leader>d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
 " toggle spelling
 nnoremap <leader>s :set invspell<CR>
 
-" == Plugins ==
+" = Plugins =
 
 filetype off
 " set the runtime path to include Vundle and initialize
