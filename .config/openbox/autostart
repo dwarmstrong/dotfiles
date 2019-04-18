@@ -1,4 +1,7 @@
+# ~/.config/openbox/autostart
 #
+# Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/openbox/autostart
+
 # These things are run when an Openbox X Session is started.
 
 # Set background color (`hsetroot` plays nice with compton) and image
