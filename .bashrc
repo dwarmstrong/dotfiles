@@ -26,10 +26,15 @@ PS1="${MAGENTA}\\u ${WHITE}at ${GREEN}\\h${YELLOW}${ssh_message} ${WHITE}in ${BL
 
 # == Functions ==
 
+# backup and timestamp files
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
+# change directories and list contents
 c() { cd "$@" && ls -aFlhNv --color=always; }
+# top 10 most used commands
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
+# list files by size from smallest to largest in a directory
 mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
+# replace spaces and non-ascii characters in a filename with underscore
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 
 # == Aliases ==
