@@ -27,9 +27,9 @@ PS1="${MAGENTA}\\u ${WHITE}at ${GREEN}\\h${YELLOW}${ssh_message} ${WHITE}in ${BL
 # == Functions ==
 
 bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
-c() { cd "$@" && ls -aFlhNv --color=auto; }
+c() { cd "$@" && ls -aFlhNv --color=always; }
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
-mostUsedDiskSpaceByFile() { find $1 -type f -exec wc -c {} \; | sort -n; }
+mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 
 # == Aliases ==
