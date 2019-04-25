@@ -34,6 +34,10 @@ c() { cd "$@" && ls -aFlhNv --color=always; }
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
 # list files by size from smallest to largest in a directory
 mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
+# (u)mount devices
+MNTPHONE="${HOME}/local/mnt/phone"
+mountPhone() { jmtpfs "$MNTPHONE" && df -h | head -1 && df -h | grep "$MNTPHONE"; }
+umountPhone() { fusermount -u "$MNTPHONE" && df -h; }
 # replace spaces and non-ascii characters in a filename with underscore
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 
