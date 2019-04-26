@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $HOME/.config/openbox/rc.xml -->
+<!-- ~/.config/openbox/rc.xml
+    Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/openbox/rc.xml -->
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -41,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Adapta-Nokto</name>
+    <name>Shades-of-gray-Firebrick</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -784,6 +785,11 @@
     </application>
     <!-- Virtualbox -->
     <application class="VirtualBox">
+      <maximized>false</maximized>
+      <decor>yes</decor>
+    </application>
+    <!-- Viewnior -->
+    <application name="viewnior">
       <maximized>false</maximized>
       <decor>yes</decor>
     </application>
