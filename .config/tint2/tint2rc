@@ -1,9 +1,12 @@
-#---- tint2rc ----
-# Inspired by ...
-# https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2
-# See https://gitlab.com/o9000/tint2/wikis/Configure for
-# full documentation of the configuration options.
-#-----------------
+# ~/.config/tint2/tint2rc
+#
+# Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/tint2/tint2rc
+# Inspired by https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2.
+
+# If making changes  while tint2 is running, the command ...
+#   killall -SIGUSR1 tint2
+# ... will force tint2 to reload it. See https://gitlab.com/o9000/tint2/wikis/Configure
+# for full documentation of the configuration options.
 
 # Backgrounds
 
@@ -78,9 +81,9 @@ rounded = 0
 border_width = 1
 border_sides = TBLR
 background_color = #000000 80
-border_color = #329B61 80
+border_color = #C14E4E 80
 background_color_hover = #000000 80
-border_color_hover = #329B61 80
+border_color_hover = #C14E4E 80
 background_color_pressed = #000000 80
 border_color_pressed = #000000 80
 
@@ -88,11 +91,11 @@ border_color_pressed = #000000 80
 rounded = 0
 border_width = 0
 border_sides = B
-background_color = #329B61 80
+background_color = #C14E4E 80
 border_color = #000000 0
-background_color_hover = #329B61 80
+background_color_hover = #C14E4E 80
 border_color_hover = #000000 0
-background_color_pressed = #329B61 80
+background_color_pressed = #C14E4E 80
 border_color_pressed = #000000 0
 
 #===============================================
