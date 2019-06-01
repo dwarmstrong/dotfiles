@@ -137,3 +137,9 @@ export QT_QPA_PLATFORMTHEME=gtk2
 # Disable XON/XOFF flow control. Enables use of C-S in other commands.
 # Examples: forward search in history; disable screen freeze in vim.
 stty -ixon
+
+# Bash completion
+if [[ -f /etc/profile.d/bash_completion.sh ]]; then
+    # shellcheck source=/dev/null
+    . /etc/profile.d/bash_completion.sh
+fi
