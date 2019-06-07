@@ -1,0 +1,13 @@
+#!/bin/bash
+# ~/.dot/.xinput.conf.thinkpad_x230
+#
+# Source: https://github.com/vonbrownie/dotfiles/blob/master/.xinput.conf.thinkpad_x230
+set -eu
+
+# Xorg uses libinput library and driver to handle input devices.
+
+# trackpoint device ID
+TP_ID=$( xinput list | grep "TrackPoint" | grep -o 'id=[[:digit:]]*' | cut -d'=' -f2 )
+
+xinput --set-prop $TP_ID "libinput Accel Speed" 0.50
+xinput --set-prop $TP_ID "libinput Accel Profile Enabled" 0 1
