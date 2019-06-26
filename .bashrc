@@ -40,6 +40,8 @@ mountPhone() { jmtpfs "$MNTPHONE" && df -h | head -1 && df -h | grep "$MNTPHONE"
 umountPhone() { fusermount -u "$MNTPHONE" && df -h; }
 # Replace spaces and non-ascii characters in a filename with underscore
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
+# Convert lbs to kg
+lbs2kg() { echo "$1 * 0.453592" | bc; }
 
 # == Aliases ==
 
