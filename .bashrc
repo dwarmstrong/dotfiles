@@ -50,7 +50,7 @@ alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
-alias down="c ~/Downloads"
+alias down="c ~/tmp"
 alias dpkgg="dpkg -l | grep -i"
 alias e="nvim"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
@@ -127,14 +127,11 @@ alias starthistory="set -o history"
 shopt -s checkwinsize
 
 # Use `keychain` for ssh-agent management; `apt install keychain`
-if [[ -x /usr/bin/keychain ]]; then
-	keychain ~/.ssh/id_ed25519
+#if [[ -x /usr/bin/keychain ]]; then
+#	keychain ~/.ssh/id_ed25519
     # shellcheck source=/dev/null
-	. "${HOME}/.keychain/${HOSTNAME}-sh"
-fi
-
-# Style QT apps with the chosen GTK theme
-export QT_QPA_PLATFORMTHEME=gtk2
+#	. "${HOME}/.keychain/${HOSTNAME}-sh"
+#fi
 
 # Disable XON/XOFF flow control. Enables use of C-S in other commands.
 # Examples: forward search in history; disable screen freeze in vim.
