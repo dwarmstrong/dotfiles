@@ -34,6 +34,8 @@ c() { cd "$@" && ls -aFlhNv --color=always; }
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
 # List files by size from smallest to largest in a directory
 mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
+# make directory and change to it immediately
+md() { mkdir -p "$@" && cd "$@" || return; }
 # (u)mount devices
 MNTPHONE="${HOME}/local/mnt/phone"
 mountPhone() { jmtpfs "$MNTPHONE" && df -h | head -1 && df -h | grep "$MNTPHONE"; }
@@ -59,7 +61,6 @@ alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias l="ls -aFlhNv --color=always"
 alias lsblkk="lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,UUID"
-alias mkdirr="mkdir -pv"
 alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
 alias p="less -R"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
