@@ -1,6 +1,4 @@
 " ~/.config/nvim/init.vim
-"
-" Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/nvim/init.vim
 
 " = General Configuration =
 
