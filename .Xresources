@@ -4,7 +4,7 @@
 ! Refresh config by running `xrdb -merge ~/.Xresources`.
 
 ! == Colours ==
-*.foreground:   #b7b8b9
+*.foreground:   #31a354
 *.background:   #000000
 *.cursorColor:  #ef2929
 
