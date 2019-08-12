@@ -1,6 +1,4 @@
 # ~/.bashrc
-#
-# Source: https://github.com/vonbrownie/dotfiles/blob/master/.bashrc
 
 # if not running interactively, don't do anything
 case $- in
@@ -15,6 +13,7 @@ GREEN="\\[\\e[1;32m\\]"
 YELLOW="\\[\\e[1;33m\\]"
 BLUE="\\[\\e[1;34m\\]"
 MAGENTA="\\[\\e[1;35m\\]"
+CYAN="\\[\\e[1;36m\\]"
 WHITE="\\[\\e[1;37m\\]"
 RESET="\\[\\e[0m\\]"
 
@@ -22,7 +21,7 @@ RESET="\\[\\e[0m\\]"
 if [[ -n "$SSH_CLIENT" ]]; then
     ssh_message="-ssh_session"
 fi
-PS1="${MAGENTA}\\u ${WHITE}at ${GREEN}\\h${YELLOW}${ssh_message} ${WHITE}in ${BLUE}\\w \\n$WHITE\$${RESET} "
+PS1="${MAGENTA}\\u ${WHITE}at ${YELLOW}\h${CYAN}${ssh_message} ${WHITE}in ${BLUE}\\w \\n$WHITE\$${RESET} "
 
 # == Functions ==
 
@@ -36,10 +35,6 @@ mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | he
 mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
 # make directory and change to it immediately
 md() { mkdir -p "$@" && cd "$@" || return; }
-# (u)mount devices
-MNTPHONE="${HOME}/local/mnt/phone"
-mountPhone() { jmtpfs "$MNTPHONE" && df -h | head -1 && df -h | grep "$MNTPHONE"; }
-umountPhone() { fusermount -u "$MNTPHONE" && df -h; }
 # Replace spaces and non-ascii characters in a filename with underscore
 mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
 # Convert lbs to kg
@@ -52,7 +47,6 @@ alias arst="setxkbmap us && ~/bin/keyboardconf"
 alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
-alias down="c ~/tmp"
 alias dpkgg="dpkg -l | grep -i"
 alias e="nvim"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
@@ -65,6 +59,7 @@ alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 
 alias p="less -R"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="sudo systemctl reboot"
+alias tmp="c ~/tmp"
 alias tmuxd="tmux -f ~/.tmux.default attach"
 alias virtualBoxFusion="VirtualBox -style Fusion %U"
 alias x="exit"
@@ -127,12 +122,15 @@ alias starthistory="set -o history"
 # command and, if necessary, update the values of LINES and COLUMNS. 
 shopt -s checkwinsize
 
+# Set colours for `ls`
+eval `dircolors`
+
 # Use `keychain` for ssh-agent management; `apt install keychain`
-#if [[ -x /usr/bin/keychain ]]; then
-#	keychain ~/.ssh/id_ed25519
+if [[ -x /usr/bin/keychain ]]; then
+	keychain ~/.ssh/id_ed25519
     # shellcheck source=/dev/null
-#	. "${HOME}/.keychain/${HOSTNAME}-sh"
-#fi
+	. "${HOME}/.keychain/${HOSTNAME}-sh"
+fi
 
 # Disable XON/XOFF flow control. Enables use of C-S in other commands.
 # Examples: forward search in history; disable screen freeze in vim.
@@ -143,3 +141,4 @@ if [[ -f /etc/profile.d/bash_completion.sh ]]; then
     # shellcheck source=/dev/null
     . /etc/profile.d/bash_completion.sh
 fi
+
