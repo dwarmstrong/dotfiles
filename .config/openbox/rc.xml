@@ -289,12 +289,12 @@
       </action>
     </keybind>
     <!-- Keybindings to launch applications -->
-    <keybind key="A-F2">
+    <keybind key="A-x">
       <action name="Execute">
         <command>rofi -monitor primary -show run</command>
       </action>
     </keybind>
-    <keybind key="A-F1">
+    <keybind key="A-r">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
