@@ -6,13 +6,13 @@
 # launch applications at `startx` listed in `~/.config/openbox/autostart
 
 # bind commands to certain keys or key combos
-#[ -f ~/.xbindkeysrc ] && xbindkeys     # configured by ~/bin/keyboardconf
+[ -f ~/.xbindkeysrc ] && xbindkeys
 
 # key mappings
-#[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap    # keyboardconf
+[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
 
 # input devices
-#[ -x ~/.xinput.conf ] && ~/.xinput.conf    # keyboardconf
+[ -x ~/.xinput.conf ] && ~/.xinput.conf
 
 # config parameters for X client applications
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
