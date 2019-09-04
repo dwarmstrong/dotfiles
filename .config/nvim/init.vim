@@ -19,12 +19,12 @@ filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 
 " == Colors ==
-"
-" built-in schemes installed in `/usr/share/nvim/runtime/colors`; extra schemes installed in `~/.config/nvim/colors`
+
+" built-in schemes installed in `/usr/share/nvim/runtime/colors`; extra schemes in `~/.config/nvim/colors`
 colorscheme default     " `default` picks up colors defined in `~/.Xresources`
 
 " == Mode mappings ==
-"
+
 " normal mode map -- `:nnoremap`
 " insert mode map -- `:inoremap`
 
@@ -40,8 +40,13 @@ inoremap <leader>d <C-R>=strftime("%Y-%m-%dT%H:%M")<CR>
 " `<C-R>=` is used to insert the result of an expression at the cursor
 
 " == Plugins ==
-"
-" installed in `~/.local/share/nvim/site/pack/extra/start`
+
+" managed by [vim-plug](https://github.com/junegunn/vim-plug)
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'vimwiki/vimwiki'
+call plug#end()
+
+" == Extras ==
 
 " vimwiki 
 let g:vimwiki_list = [{'path': '~/doc/wiki/', 'path_html': '~/doc/wiki/html/'}]
