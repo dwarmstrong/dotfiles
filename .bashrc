@@ -63,6 +63,7 @@ alias t="c ~/tmp"
 alias tmuxd="tmux -f ~/.tmux.default attach"
 alias virtualBoxFusion="VirtualBox -style Fusion %U"
 alias x="exit"
+alias y="python3"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
 alias zzz="sync && sudo systemctl suspend"
 
