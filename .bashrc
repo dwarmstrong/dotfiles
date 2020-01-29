@@ -26,25 +26,28 @@ PS1="${MAGENTA}\\u ${WHITE}at ${YELLOW}\h${CYAN}${ssh_message} ${WHITE}in ${BLUE
 # == Functions ==
 
 # Backup and timestamp files
-bak() { for f in "$@"; do cp "$f" "$f.$(date +%FT%H%M%S).bak"; done; }
+bak() { for f in "$@" ; do cp -- "$f" "$f.$(date +%FT%H%M%S).bak" ; done ; }
+
 # change directories and list contents
-c() { cd "$@" && ls -aFlhNv --color=always; }
-# Top 10 most used commands
-mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head; }
-# List files by size from smallest to largest in a directory
-mostUsedDiskSpaceByFile() { find "$1" -type f -exec wc -c {} \; | sort -n; }
-# make directory and change to it immediately
-md() { mkdir -p "$@" && cd "$@" || return; }
-# Replace spaces and non-ascii characters in a filename with underscore
-mtg() { for f in "$@"; do mv "$f" "${f//[^a-zA-Z0-9\.\-]/_}"; done; }
+c() { cd -- "$@" && ls -aFlhNv --color=always ; }
+
 # Convert lbs to kg
-lbs2kg() { echo "$1 * 0.453592" | bc; }
+lbs2kg() { echo "$1 * 0.453592" | bc ; }
+
+# Top 10 most used commands
+mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head ; }
+
+# Make directory and change to it immediately
+md() { mkdir -p -- "$@" && cd -- "$@" || return ; }
+
+# Replace spaces and non-ascii characters in a filename with underscore
+mtg() { for f in "$@" ; do mv -- "$f" "${f//[^a-zA-Z0-9\.\-]/_}" ; done ; }
 
 # == Aliases ==
 
-alias aaa="generatePkgList -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
-alias arst="setxkbmap us && ~/bin/keyboardconf"
-alias asdf="setxkbmap us -variant colemak && ~/bin/keyboardconf"
+alias aaa="genpkglst -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias arst="setxkbmap us"
+alias asdf="setxkbmap us -variant colemak"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
 alias dpkgg="dpkg -l | grep -i"
@@ -54,16 +57,13 @@ alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias l="ls -aFlhNv --color=always"
-alias lsblkk="lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT,UUID"
 alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
 alias p="less -R"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="sudo systemctl reboot"
 alias t="c ~/tmp"
 alias tmuxd="tmux -f ~/.tmux.default attach"
-alias virtualBoxFusion="VirtualBox -style Fusion %U"
 alias x="exit"
-alias y="python3"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
 alias zzz="sync && sudo systemctl suspend"
 
@@ -74,24 +74,24 @@ fi
 
 # == History ==
 
-# Unlimited history.
+# Unlimited history
 HISTSIZE=
 HISTFILESIZE=
 
-# Change the history file location because certain bash sessions
-# truncate ~/.bash_history upon close
+# Change the history file location because certain bash sessions truncate
+# ~/.bash_history upon close
 HISTFILE=~/.bash_unlimited_history
 
-# Default is to write history at the end of each session, overwriting
-# the existing file with an updated version. If logged in with multiple
-# sessions, only the last session to exit will have its history saved.
+# Default is to write history at the end of each session, overwriting the
+# existing file with an updated version. If logged in with multiple sessions,
+# only the last session to exit will have its history saved.
 #
 # Require  prompt write to history after every command and append to the
 # history file, don't overwrite it.
 shopt -s histappend
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-# Now you can see the commands from all shells in near real-time
-# in ~/.bash_unlimited history. Starting a new shell displays the
+# Now you can see the commands from all shells in near real-time in
+# ~/.bash_unlimited history. Starting a new shell displays the
 # combined history from all terminals.
 
 # Add a timestamp per entry. Useful for context when viewing logfiles
@@ -119,8 +119,8 @@ alias starthistory="set -o history"
 
 # == Misc ==
 
-# When resizing a terminal emulator, check the window size after each
-# command and, if necessary, update the values of LINES and COLUMNS. 
+# When resizing a terminal emulator, check the window size after each command
+# and, if necessary, update the values of LINES and COLUMNS. 
 shopt -s checkwinsize
 
 # Set colours for `ls`
@@ -143,3 +143,9 @@ if [[ -f /etc/profile.d/bash_completion.sh ]]; then
     . /etc/profile.d/bash_completion.sh
 fi
 
+# Automatically search the official repositories when entering an unrecognized
+# command.
+if [[ -f /usr/share/doc/pkgfile/command-not-found.bash ]]; then
+    # shellcheck source=/dev/null
+    . /usr/share/doc/pkgfile/command-not-found.bash
+fi
