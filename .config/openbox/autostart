@@ -1,18 +1,16 @@
 # ~/.config/openbox/autostart
-#
-# Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/openbox/autostart
 
 # These things are run when an Openbox X Session is started.
 
 # Set background color (`hsetroot` plays nice with compton) and image
 hsetroot -solid "#000000"
-(sleep 1; ~/.fehbg) &
+(sleep 1; /bin/sh ~/.fehbg) &
 
 # Detect if secondary display attached and make it primary
 ~/bin/dldsply -r &
 
 # Compositor
-compton -b -c &
+compton -b &
 
 # Detect keyboard and configure xbindkeys + xmodmap
 #(sleep 5; ~/bin/keyboardconf) &
@@ -32,8 +30,8 @@ clipit &
 # Volume control
 (sleep 2; volumeicon) &
 
-# Network manager (launched by /etc/xdg/autostart/nm-applet.desktop)
-#nm-applet &
+# Network manager
+nm-applet &
 
 # Launch terminal
 urxvt &
