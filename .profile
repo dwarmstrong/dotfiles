@@ -21,5 +21,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Style QT apps with the chosen GTK theme
+# install 'qt5-style-plugins' package, then style QT apps with chosen GTK theme
 export QT_QPA_PLATFORMTHEME=gtk2
