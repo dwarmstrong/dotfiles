@@ -180,65 +180,65 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop -->
-    <keybind key="A-1">
+    <keybind key="W-F1">
       <action name="GoToDesktop">
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="A-2">
+    <keybind key="W-F2">
       <action name="GoToDesktop">
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="A-3">
+    <keybind key="W-F3">
       <action name="GoToDesktop">
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="A-4">
+    <keybind key="W-F4">
       <action name="GoToDesktop">
         <to>4</to>
       </action>
     </keybind>
-    <keybind key="A-d">
+    <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="S-A-1">
+    <keybind key="S-W-F1">
       <action name="SendToDesktop">
         <to>1</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-2">
+    <keybind key="S-W-F2">
       <action name="SendToDesktop">
         <to>2</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-3">
+    <keybind key="S-W-F3">
       <action name="SendToDesktop">
         <to>3</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-4">
+    <keybind key="S-W-F4">
       <action name="SendToDesktop">
         <to>4</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="S-W-Up">
       <action name="MoveResizeTo">
         <monitor>1</monitor>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="S-W-Down">
       <action name="MoveResizeTo">
         <monitor>2</monitor>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
@@ -247,7 +247,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="S-W-Right">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>1/2</x>
@@ -256,16 +256,16 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="S-A-m">
+    <keybind key="S-W-m">
       <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="S-A-d">
+    <keybind key="S-W-d">
       <action name="ToggleDecorations"/>
     </keybind>
-    <keybind key="S-A-i">
+    <keybind key="S-W-i">
       <action name="Iconify"/>
     </keybind>
-    <keybind key="S-A-c">
+    <keybind key="S-W-c">
       <action name="Close"/>
     </keybind>
     <!-- Keybindings for window switching -->
@@ -289,28 +289,28 @@
       </action>
     </keybind>
     <!-- Keybindings to launch applications -->
-    <keybind key="A-x">
+    <keybind key="W-x">
       <action name="Execute">
         <command>rofi -monitor primary -show run</command>
       </action>
     </keybind>
-    <keybind key="A-r">
+    <keybind key="W-r">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
     </keybind>
     <!-- Keybindings for [l]ock screen, [s]uspend, [e]xit -->
-    <keybind key="C-A-l">
+    <keybind key="W-l">
       <action name="Execute">
         <command>i3lock -c 000000 -i ~/.i3lock.png</command>
       </action>
     </keybind>
-    <keybind key="C-A-s">
+    <keybind key="W-s">
       <action name="Execute">
         <command>sh -c 'i3lock -c 000000 -i ~/.i3lock.png; sync; systemctl suspend'</command>
       </action>
     </keybind>
-    <keybind key="C-A-e">
+    <keybind key="W-e">
       <action name="Exit">
         <prompt>no</prompt>
       </action>
@@ -730,7 +730,7 @@
       <monitor>1</monitor>
       # specifies the monitor in a xinerama setup.
       # 1 is the first head, or 'mouse' for wherever the mouse is
-    </position>
+   </position>
 
     <size>
       # the size to make the window.
