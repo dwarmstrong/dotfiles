@@ -9,7 +9,7 @@
 [ -f ~/.xbindkeysrc ] && xbindkeys
 
 # key mappings
-[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
+[ -f ~/.xmodmap ] && sleep 5 && xmodmap ~/.xmodmap &
 
 # input devices
 [ -x ~/.xinput.conf ] && ~/.xinput.conf
