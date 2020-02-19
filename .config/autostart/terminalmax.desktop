@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=terminalmax
+Exec=/home/dwa/bin/terminalmax
+Icon=utilities-terminal
+Type=Application
+StartupNotify=false
