@@ -1,5 +1,5 @@
 # ~/.bashrc
-
+#
 # if not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -30,9 +30,6 @@ bak() { for f in "$@" ; do cp -- "$f" "$f.$(date +%FT%H%M%S).bak" ; done ; }
 
 # change directories and list contents
 c() { cd -- "$@" && ls -aFlhNv --color=always ; }
-
-# Convert lbs to kg
-#lbs2kg() { echo "$1 * 0.453592" | bc ; }
 
 # Top 10 most used commands
 mostUsedCommands() { history | awk '{print $3}' | sort | uniq -c | sort -rn | head ; }
