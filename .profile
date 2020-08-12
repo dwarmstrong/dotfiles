@@ -25,4 +25,4 @@ fi
 #export QT_STYLE_OVERRIDE=Adwaita
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 # Non-adwaita themes - install 'qt5-style-plugins' package, then ...
-#export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=gtk2
