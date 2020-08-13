@@ -22,10 +22,10 @@
 #xset s off -dpms
 
 # disable system beep
-#xset b off
+xset b off
 
 # set keyboard layout to colemak
-setxkbmap -model pc105 -layout us -variant colemak
+setxkbmap -model pc104 -layout us -variant colemak
 
 # janitor
 [ -d ~/.local/share/Trash ] && rm -rf ~/.local/share/Trash/*
