@@ -6,6 +6,12 @@ case $- in
       *) return;;
 esac
 
+# == Greeting ==
+
+if $(hash fortune > /dev/null 2>&1); then
+    fortune $HOME/.fortunes
+fi
+
 # == Prompt ==
 
 # Colour codes

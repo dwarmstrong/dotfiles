@@ -20,6 +20,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 fi
 
+# Greeting
+if $(hash fortune > /dev/null 2>&1); then
+    fortune $HOME/.fortunes
+fi
+
 # Styling QT apps with chosen GTK themes:
 # Adwaita themes - install 'adwaita-qt' package, then ...
 #export QT_STYLE_OVERRIDE=Adwaita
