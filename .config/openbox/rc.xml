@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ~/.config/openbox/rc.xml
-    Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/openbox/rc.xml -->
+<!--
+> Daniel Wayne Armstrong
+> https://github.com/vonbrownie/dotfiles
+> https://www.dwarmstrong.org
+-->
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -288,7 +291,7 @@
       </action>
     </keybind>
     <!-- Keybindings to launch applications -->
-    <keybind key="W-x">
+    <keybind key="W-space">
       <action name="Execute">
         <command>rofi -monitor primary -show run</command>
       </action>

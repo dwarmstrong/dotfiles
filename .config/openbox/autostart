@@ -1,37 +1,37 @@
-# ~/.config/openbox/autostart
+#
+#> Daniel Wayne Armstrong
+#> https://github.com/dwarmstrong/dotfiles
+#> https://www.dwarmstrong.org/
+#
+# run these things when openbox starts
 
-# These things are run when an Openbox X Session is started.
-
-# Set background color (`hsetroot` plays nice with compton) and image
+# set background color (`hsetroot` plays nice with picom) and image
 hsetroot -solid "#000000"
 (sleep 1; /bin/sh ~/.fehbg) &
 
-# Detect if secondary display attached and make it primary
+# detect if secondary display attached and make it primary
 ~/bin/dldsply -r &
 
-# Compositor
-compton -b &
+# compositor - background process + disable shadowing effects during session
+#picom -CGb &
 
-# Detect keyboard and configure xbindkeys + xmodmap
-#(sleep 5; ~/bin/keyboardconf) &
-
-# Power management
+# power management
 xfce4-power-manager &
 
-# Notifications
+# notifications
 dunst -config ~/.config/dunst/dunstrc &
 
-# Panel - taskbar, system tray, battery, clock
+# panel - taskbar, system tray, battery, clock
 tint2 &
 
-# Clipboard
-clipit &
+# clipboard
+#clipit &
 
-# Volume control
+# volume control
 (sleep 2; volumeicon) &
 
-# Network manager
+# network manager
 nm-applet &
 
-# Launch terminal
-urxvt &
+# launch terminal
+#urxvt &
