@@ -1,12 +1,14 @@
-# ~/.config/tint2/tint2rc
 #
-# Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/tint2/tint2rc
-# Inspired by https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2.
-
+#> Daniel Wayne Armstrong
+#> https://github.com/dwarmstrong/dotfiles
+#> https://www.dwarmstrong.org
+#
+# Inspired by:
+#   https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2.
+#
 # If making changes  while tint2 is running, the command ...
 #   killall -SIGUSR1 tint2
-# ... will force tint2 to reload it. See https://gitlab.com/o9000/tint2/wikis/Configure
-# for full documentation of the configuration options.
+# ... will force tint2 to reload it.
 
 # Backgrounds
 
@@ -14,7 +16,7 @@
 rounded = 0
 border_width = 0
 border_sides = TBLR
-background_color = #000000 60
+background_color = #000000 100
 border_color = #000000 0
 background_color_hover = #000000 60
 border_color_hover = #000000 0
@@ -113,7 +115,7 @@ panel_layer = top
 panel_monitor = 1
 primary_monitor_first = 0
 panel_window_name = tint2
-disable_transparency = 0
+disable_transparency = 1
 mouse_effects = 1
 font_shadow = 0
 mouse_hover_icon_asb = 100 0 10
