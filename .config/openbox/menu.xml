@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ~/.config/openbox/menu.xml
-    Source: https://github.com/vonbrownie/dotfiles/blob/master/.config/openbox/menu.xml -->
+<!-- 
+> Daniel Wayne Armstrong
+> https://github.com/dwarmstrong/dotfiles
+> https://www.dwarmstrong.org
+-->
 
 <openbox_menu xmlns="http://openbox.org/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -15,29 +18,29 @@
 <menu id="scrot-menu" label="Screenshots">
 <item label="Now">
     <action name="Execute"><execute>
-    scrot -d 1 -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/tmp/ &amp; viewnior ~/tmp/$f'
+        scrot -d 1 -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/image/screenshot &amp; viewnior ~/image/screenshot/$f'
     </execute></action>
 </item>
 <item label="In 5 Seconds...">
     <action name="Execute"><execute>
-    scrot -d 5 -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/tmp/ &amp; viewnior ~/tmp/$f'
+        scrot -d 5 -u -z 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/image/screenshot &amp; viewnior ~/image/screenshot/$f'
     </execute></action>
 </item>
 <item label="Selected Area...">
     <action name="Execute"><execute>
-    scrot -s 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/tmp/ &amp; viewnior ~/tmp/$f'
+        scrot -s 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/image/screenshot &amp; viewnior ~/image/screenshot/$f'
     </execute></action>
 </item>
 <item label="Desktop">
     <action name="Execute"><execute>
-    scrot 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/tmp/ &amp; viewnior ~/tmp/$f'
+        scrot 'screenshot-%Y-%m-%dT%H%M%S.png' -e 'mv $f ~/image/screenshot &amp; viewnior ~/image/screenshot/$f'
     </execute></action>
 </item>
 </menu>
-<!-- This requires the presence of the 'menu' package to work -->
+<!-- This requires the presence of the 'menu' package to work
   <menu id="/Debian" />
   <separator />
-  <menu id="client-list-menu" />
+  <menu id="client-list-menu" /> -->
   <separator />
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>
