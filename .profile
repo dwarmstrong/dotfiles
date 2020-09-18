@@ -1,13 +1,13 @@
+#
+#> Daniel Wayne Armstrong
+#> https://github.com/dwarmstrong/dotfiles
+#> https://www.dwarmstrong.org
+#
+
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login exists.
-# See /usr/share/doc/bash/examples/startup-files for examples. The files are
-# located in the bash-doc package.
+# See /usr/share/doc/bash/examples/startup-files for examples.
 
-# Default umask is set in /etc/profile; for setting the umask for ssh logins,
-# install and configure the libpam-umask package.
-#umask 022
-
-# If running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
@@ -15,14 +15,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# Set PATH so it includes user's private bin if it exists
+# Set PATH so it includes user's private bin if it exists.
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-fi
-
-# Greeting
-if $(hash fortune > /dev/null 2>&1); then
-    fortune $HOME/.fortunes
 fi
 
 # Styling QT apps with chosen GTK themes:

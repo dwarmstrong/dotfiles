@@ -1,6 +1,8 @@
-# ~/.config/dunst/dunstrc
 #
-# Src: https://github.com/vonbrownie/dotfiles/blob/master/.config/dunst/dunstrc
+#> Daniel Wayne Armstrong
+#> https://github.com/vonbrownie/dotfiles
+#> https://www.dwarmstrong.org
+#
 [global]
     #font = Monospace 8
     font = Liberation Mono 10

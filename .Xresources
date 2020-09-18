@@ -1,6 +1,9 @@
 ! ~/.Xresources
 !
-! Source: https://github.com/vonbrownie/dotfiles/blob/master/.Xresources
+!> Daniel Wayne Armstrong
+!> https://github.com/vonbrownie/dotfiles
+!> https://www.dwarmstrong.org
+!
 ! Refresh config by running `xrdb -merge ~/.Xresources`.
 
 ! == Colours ==

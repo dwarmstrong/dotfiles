@@ -1,5 +1,9 @@
-# ~/.bashrc
 #
+#> Daniel Wayne Armstrong
+#> https://github.com/dwarmstrong/dotfiles
+#> https://www.dwarmstrong.org
+#
+
 # if not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -54,7 +58,7 @@ alias asdf="setxkbmap us -variant colemak"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
 alias dpkgg="dpkg -l | grep -i"
-alias e="nvim"
+alias e="vim"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
 alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"
@@ -62,6 +66,7 @@ alias gs="git status"
 alias l="ls -aFlhNv --color=always"
 alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
 alias p="less -R"
+alias ppp="pacpkglst && sudo pacman -Syu"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias reboot="sudo systemctl reboot"
 alias t="c ~/tmp"
@@ -130,10 +135,9 @@ shopt -s checkwinsize
 # Set colours for `ls`
 eval `dircolors`
 
-# Use `keychain` for ssh-agent management; `apt install keychain`
+# Use `keychain` for ssh-agent management
 if [[ -x /usr/bin/keychain ]]; then
 	keychain ~/.ssh/id_ed25519
-    # shellcheck source=/dev/null
 	. "${HOME}/.keychain/${HOSTNAME}-sh"
 fi
 
