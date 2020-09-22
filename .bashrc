@@ -132,7 +132,8 @@ alias starthistory="set -o history"
 # and, if necessary, update the values of LINES and COLUMNS. 
 shopt -s checkwinsize
 
-# Set colours for `ls`
+# Set colours
+#eval dircolors ${HOME}/.dir_colors/dircolors
 eval `dircolors`
 
 # Use `keychain` for ssh-agent management
