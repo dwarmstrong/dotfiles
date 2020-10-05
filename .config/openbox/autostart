@@ -34,4 +34,4 @@ tint2 &
 nm-applet &
 
 # launch terminal
-urxvt &
+termite &

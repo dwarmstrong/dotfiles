@@ -19,6 +19,7 @@ fi
 # == Prompt ==
 
 # Colour codes
+RED="\\[\\e[1;31m\\]"
 GREEN="\\[\\e[1;32m\\]"
 YELLOW="\\[\\e[1;33m\\]"
 BLUE="\\[\\e[1;34m\\]"
@@ -31,7 +32,7 @@ RESET="\\[\\e[0m\\]"
 if [[ -n "$SSH_CLIENT" ]]; then
     ssh_message="-ssh_session"
 fi
-PS1="${MAGENTA}\\u ${WHITE}at ${YELLOW}\h${CYAN}${ssh_message} ${WHITE}in ${BLUE}\\w \\n$WHITE\$${RESET} "
+PS1="${GREEN}\\u ${WHITE}at ${YELLOW}\h${RED}${ssh_message} ${WHITE}in ${BLUE}\\w \\n$WHITE\$${RESET} "
 
 # == Functions ==
 
@@ -52,13 +53,13 @@ mtg() { for f in "$@" ; do mv -- "$f" "${f//[^a-zA-Z0-9\.\-]/_}" ; done ; }
 
 # == Aliases ==
 
-alias aaa="genpkglst -d ~/code/debian && sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
+alias aaa="sudo apt update && apt list --upgradable && sudo apt full-upgrade && sudo apt autoremove"
 alias arst="setxkbmap us"
 alias asdf="setxkbmap us -variant colemak"
 alias bye="sudo systemctl poweroff"
 alias dff="df -hT --total"
 alias dpkgg="dpkg -l | grep -i"
-alias e="vim"
+alias e="nvim"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
 alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"

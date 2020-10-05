@@ -4,7 +4,7 @@
 #> https://www.dwarmstrong.org
 #
 # Inspired by:
-#   https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2.
+#> https://github.com/adi1090x/my_dotfiles/blob/master/.config/tint2
 #
 # If making changes  while tint2 is running, the command ...
 #   killall -SIGUSR1 tint2
@@ -28,11 +28,11 @@ rounded = 0
 border_width = 2
 border_sides = B
 background_color = #000000 0
-border_color = #FFFF00 80
+border_color = #a3be8c 80
 background_color_hover = #000000 30
-border_color_hover = #FFFF00 90
+border_color_hover = #a3be8c 90
 background_color_pressed = #000000 50
-border_color_pressed = #FFFF00 100
+border_color_pressed = #a3be8c 100
 
 # Background 3: Default task, Iconified task
 rounded = 0
@@ -83,9 +83,9 @@ rounded = 0
 border_width = 1
 border_sides = TBLR
 background_color = #000000 80
-border_color = #C14E4E 80
+border_color = #bf616a 80
 background_color_hover = #000000 80
-border_color_hover = #C14E4E 80
+border_color_hover = #bf616a 80
 background_color_pressed = #000000 80
 border_color_pressed = #000000 80
 
@@ -93,11 +93,11 @@ border_color_pressed = #000000 80
 rounded = 0
 border_width = 0
 border_sides = B
-background_color = #C14E4E 80
+background_color = #bf616a 80
 border_color = #000000 0
-background_color_hover = #C14E4E 80
+background_color_hover = #bf616a 80
 border_color_hover = #000000 0
-background_color_pressed = #C14E4E 80
+background_color_pressed = #bf616a 80
 border_color_pressed = #000000 0
 
 #===============================================
@@ -112,7 +112,7 @@ wm_menu = 1
 panel_dock = 0
 panel_position = top center horizontal
 panel_layer = top
-panel_monitor = 1
+panel_monitor = primary
 primary_monitor_first = 0
 panel_window_name = tint2
 disable_transparency = 1
@@ -151,9 +151,9 @@ task_align = left
 # Tasks
 task_text = 1
 task_icon = 1
-task_centered = 1
+task_centered = 0
 urgent_nb_of_blink = 20
-task_maximum_size = 150 40
+task_maximum_size = 0 40
 task_padding = 2 2 2
 task_tooltip = 1
 task_background_id = 3

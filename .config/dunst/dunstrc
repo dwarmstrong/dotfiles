@@ -4,7 +4,6 @@
 #> https://www.dwarmstrong.org
 #
 [global]
-    #font = Monospace 8
     font = Liberation Mono 10
     
     # Allow a small subset of html markup:
@@ -151,11 +150,11 @@
     icon_position = off
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
 
 [frame]
     width = 2
-    color = "#c14e4e"
+    color = "#bf616a"
 
 [shortcuts]
 

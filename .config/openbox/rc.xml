@@ -45,7 +45,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Shades-of-gray-Firebrick</name>
+    <name>nord-openbox-theme-master</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -258,7 +258,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="S-W-m">
+    <keybind key="A-W-m">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="S-W-d">
