@@ -46,7 +46,7 @@
   </placement>
   <theme>
     <name>nord-openbox-theme-master</name>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>NLDIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
