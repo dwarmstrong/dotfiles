@@ -1,9 +1,4 @@
 #
-#> Daniel Wayne Armstrong
-#> https://github.com/dwarmstrong/dotfiles
-#> https://www.dwarmstrong.org
-#
-
 # if not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -12,9 +7,7 @@ esac
 
 # == Greeting ==
 
-if $(hash fortune > /dev/null 2>&1); then
-    fortune $HOME/.fortunes
-fi
+${HOME}/.local/bin/fortune ${HOME}/.fortunes
 
 # == Prompt ==
 
@@ -61,12 +54,13 @@ alias dff="df -hT --total"
 alias dpkgg="dpkg -l | grep -i"
 alias e="nvim"
 alias earthview="streamlink http://www.ustream.tv/channel/iss-hdev-payload best &"
+alias f="${HOME}/.local/bin/fortune ${HOME}/.fortunes"
 alias gpush="git push -u origin master"
 alias gsave="git commit -m 'save'"
 alias gs="git status"
 alias l="ls -aFlhNv --color=always"
+alias max-bright="echo 255 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness"
 alias myip="ip -f inet address | grep inet | grep -v 'lo$' | cut -d ' ' -f 6,13 && curl ifconfig.me && echo ' external ip'"
-#alias p="less -R"
 alias p="less"
 alias ppp="pacpkglst && sudo pacman -Syu"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
@@ -76,7 +70,7 @@ alias tmuxd="tmux -f ~/.tmux.default attach"
 alias virtualboxFusion="VirtualBox -style Fusion %U"
 alias x="exit"
 alias yta="youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --restrict-filenames"
-alias zzz="sync && sudo systemctl suspend"
+alias zzz="systemctl suspend"
 
 if [[ -f ~/.bash_aliases ]]; then
     # shellcheck source=/dev/null
