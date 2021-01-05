@@ -45,7 +45,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>nord-openbox-theme-master</name>
+    <name>nord-openbox</name>
     <titleLayout>NLDIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -258,7 +258,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="A-W-m">
+    <keybind key="S-W-m">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="S-W-d">
@@ -301,15 +301,20 @@
         <menu>root-menu</menu>
       </action>
     </keybind>
-    <!-- Keybindings for [l]ock screen, [s]uspend, [e]xit -->
+    <!-- Keybindings for [l]ock screen, [s]uspend, [h]ibernate, [e]xit -->
     <keybind key="W-l">
       <action name="Execute">
         <command>i3lock -c 000000 -i ~/.i3lock.png</command>
       </action>
     </keybind>
-    <keybind key="W-s">
+    <!-- <keybind key="W-s">
       <action name="Execute">
         <command>sh -c 'i3lock -c 000000 -i ~/.i3lock.png; sync; systemctl suspend'</command>
+      </action>
+    </keybind> -->
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>systemctl hibernate</command>
       </action>
     </keybind>
     <keybind key="W-e">
