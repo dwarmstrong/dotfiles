@@ -1,11 +1,4 @@
-# dotfiles
+Moved to GitLab!
+================
 
-Configuration files in my **$HOME**.
-
-#### AUTHOR
-
-[Daniel Wayne Armstrong](https://www.circuidipity.com)
-
-#### LICENSE
-
-GPLv2. See [LICENSE](https://github.com/vonbrownie/dotfiles/blob/master/LICENSE) for more details.
+This repository has moved to GitLab. You can find it at [dotfiles](https://gitlab.com/dwarmstrong/dotfiles).
